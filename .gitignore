@@ -1,0 +1,15 @@
+# Local browser profiles from manual/headless previews
+.chrome-profile/
+.edge-profile*/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
