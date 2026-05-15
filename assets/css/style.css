@@ -1380,7 +1380,6 @@ section.active {
 .project-card,
 .org-card,
 .contact-link-item,
-.asset-note,
 .detail-card,
 .detail-meta,
 .media-frame,
@@ -1918,10 +1917,12 @@ section.active {
 
 .contact-layout {
   min-height: calc(100dvh - var(--nav-h) - 140px);
-  display: grid;
-  grid-template-columns: minmax(0, 700px) minmax(280px, 380px);
-  gap: 56px;
+  display: flex;
   align-items: center;
+}
+
+.contact-hero {
+  width: min(100%, 760px);
 }
 
 .contact-headline {
@@ -1973,32 +1974,6 @@ section.active {
   font-size: 14px;
   font-weight: 700;
   color: var(--neutral);
-}
-
-.asset-note {
-  padding: 24px;
-}
-
-.asset-note h3 {
-  font-family: var(--font-head);
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.asset-note p,
-.asset-note li {
-  color: var(--neutral-mid);
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.asset-note ul {
-  margin-top: 12px;
-  padding-left: 18px;
-}
-
-.asset-note li {
-  margin-bottom: 9px;
 }
 
 footer {
@@ -2381,7 +2356,6 @@ section.active > * {
 
   .home-grid,
   .about-grid,
-  .contact-layout,
   .detail-hero-grid,
   .detail-layout {
     grid-template-columns: 1fr;
@@ -2498,14 +2472,37 @@ section.active > * {
     padding-right: 20px;
   }
 
+  .home-grid,
+  .home-left,
+  .home-photo-wrap,
+  .contact-layout,
+  .contact-hero {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .home-left,
+  .home-photo-wrap,
+  .contact-hero {
+    width: min(100%, 350px);
+    max-width: calc(100vw - 40px);
+  }
+
   #home {
     padding-top: calc(var(--nav-h) + 48px);
   }
 
-.home-headline {
+  .home-headline {
     max-width: 11ch;
     font-size: 34px;
     line-height: 1.12;
+    overflow-wrap: break-word;
+  }
+
+  .home-sub,
+  .contact-sub {
+    max-width: 100%;
     overflow-wrap: break-word;
   }
 

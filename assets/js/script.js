@@ -1,10 +1,3 @@
-const missingEvidence = [
-  "KarsaCita - belum ada foto bukti event di folder.",
-  "SF Group Services Enterprise / JetDigital.Pro - belum ada screenshot atau foto bukti di folder.",
-  "Achievement dan certification - belum ada scan sertifikat atau bukti penghargaan di folder.",
-  "Logo institusi BRIN, Telkom Indonesia, Universitas Brawijaya, Microsoft Azure - belum ada file logo terpisah di folder."
-];
-
 const projects = [
   {
     id: "enerlytics",
@@ -175,13 +168,15 @@ const organizations = [
     role: "Event Specialist Staff",
     period: "Mar - May 2023",
     summary: "Managed online sessions with 50+ participants on average.",
-    images: [],
+    images: [
+      { src: "assets/images/organizations/karsacita.jpg", alt: "KarsaCita event activity documentation.", caption: "KarsaCita event activity evidence." },
+      { src: "assets/images/organizations/karsacita-certificate.png", alt: "KarsaCita certificate documentation.", caption: "KarsaCita certificate evidence." }
+    ],
     tags: ["Online event", "50+ participants", "Talkshow", "Podcast"],
     sections: [
       { title: "What I Did", body: "Handled talkshows, Katalk sessions, and mental health podcast programs, including participant communication and internal coordination." },
       { title: "Takeaway", body: "A live session usually succeeds or fails before it starts. Clear pre-event messages helped more than I expected." }
-    ],
-    missing: "Belum ada foto bukti KarsaCita di folder."
+    ]
   },
   {
     id: "sf-group",
@@ -195,8 +190,7 @@ const organizations = [
     sections: [
       { title: "What I Did", body: "Managed audience interactions across Twitter and LinkedIn while drafting posts, articles, and brand captions." },
       { title: "Takeaway", body: "Content work taught me that tone, timing, and response quality build up slowly. Small inconsistencies are easy to notice." }
-    ],
-    missing: "Belum ada screenshot atau foto bukti SF Group / JetDigital.Pro di folder."
+    ]
   },
   {
     id: "magnet-aroma",
@@ -266,7 +260,6 @@ const organizationList = document.querySelector("[data-organization-list]");
 const organizationPrev = document.querySelector("[data-organization-prev]");
 const organizationNext = document.querySelector("[data-organization-next]");
 const organizationDots = document.querySelector("[data-organization-dots]");
-const missingList = document.querySelector("[data-missing-list]");
 const siteShell = document.getElementById("site-shell");
 const detailView = document.getElementById("detail-view");
 const themeToggle = document.querySelector("[data-theme-toggle]");
@@ -710,10 +703,6 @@ function setupTypewriter() {
   }, 1300);
 }
 
-function renderMissingEvidence() {
-  missingList.innerHTML = missingEvidence.map((item) => `<li>${item}</li>`).join("");
-}
-
 function closeMobileNav() {
   navLinks?.classList.remove("open");
   navToggle?.setAttribute("aria-expanded", "false");
@@ -907,7 +896,6 @@ document.addEventListener("keydown", (event) => {
 
 renderProjectList();
 renderOrganizationList();
-renderMissingEvidence();
 setupProjectCarousel();
 setupOrganizationCarousel();
 setupTypewriter();
