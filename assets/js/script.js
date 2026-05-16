@@ -3,110 +3,152 @@ const projects = [
     id: "enerlytics",
     number: "01 - Featured",
     title: "Enerlytics",
-    type: "Work Assignment - Individual - BRIN",
+    type: "Individual Internship Project - BRIN",
     badge: "Energy AI",
     summary: "A Flask dashboard for EV charging data. It shows live power metrics, flags unusual values, and compares forecasting models, including my DeepBoost ensemble.",
     tags: ["Python", "Flask", "OCPP 1.6", "XGBoost", "LSTM", "MySQL"],
     images: [
-      { src: "assets/images/projects/enerlytics-dashboard.jpeg", alt: "Enerlytics forecasting dashboard with charts and forecasting output.", caption: "Forecasting dashboard evidence from the folder." },
-      { src: "assets/images/projects/enerlytics-login.jpeg", alt: "Enerlytics login screen.", caption: "Login screen evidence for the forecasting web." }
+      { src: "assets/images/projects/enerlytics-dashboard.jpeg", alt: "Enerlytics forecasting dashboard with EV charging charts.", caption: "Forecast dashboard for EV charging sessions." },
+      { src: "assets/images/projects/enerlytics-login.jpeg", alt: "Enerlytics login screen.", caption: "Login page for the dashboard." }
     ],
     meta: {
-      Type: "Work Assignment - Individual",
+      Type: "Individual internship project",
       Org: "BRIN (Badan Riset dan Inovasi Nasional)",
-      Role: "Sole Developer, end-to-end",
+      Role: "Built end-to-end",
       Stack: "Python, Flask, scikit-learn, XGBoost, LSTM, MySQL, Chart.js"
     },
     sections: [
-      { title: "Why I Built It", body: "During my BRIN internship, EV charging data was already coming in: current, voltage, power, and energy consumption. The harder part was turning that stream into something a researcher could check quickly without opening the database." },
-      { title: "What I Built", body: "Enerlytics has KPI cards, four charts, threshold alerts, and a forecasting page. I added eight model options, including DeepBoost, an ensemble that combines CatBoost, XGBoost, and LSTM predictions with a Linear Regression meta-learner." },
-      { title: "Result", body: "The dashboard made the charging data easier to inspect from a browser. It also gave the team a starting point for comparing forecast output before planning charging capacity." },
-      { title: "Note", body: "The main lesson was less glamorous than the model name: forecasting work depends on clean data flow, clear charts, and knowing when a model is failing quietly." }
+      { title: "My Part", body: "Built the Flask dashboard end-to-end: login-protected pages, CSV/XLSX upload, database loading, KPI cards, daily energy tables, four Chart.js charts, and threshold-based anomaly alerts for voltage, current, and power spikes." },
+      { title: "Why It Mattered", body: "Researchers and operators could inspect charging behavior from a browser instead of querying raw MySQL tables. Forecasting also moved capacity planning from intuition to model-backed numbers." },
+      { title: "Tools", body: "Python, Flask, Pandas, NumPy, MySQL, Chart.js, OCPP 1.6 WebSocket handling, scikit-learn, XGBoost, CatBoost, LSTM, ARIMA, SVR, ANN, GBDT, and a DeepBoost stacking ensemble." },
+      { title: "What I Learned", body: "Energy AI is not only model selection. The useful part is the whole pipeline: messy OCPP data, careful preprocessing, readable metrics, alert language, and a UI that non-ML users can trust." }
     ]
   },
   {
     id: "chargesim",
     number: "02",
     title: "ChargeSim",
-    type: "Work Assignment - Individual - BRIN",
+    type: "Individual Internship Project - BRIN",
     badge: "IoT - Simulation",
     summary: "A desktop simulator for EV charging research. It runs charger sessions, talks over OCPP 1.6, replays real EV power curves, and tests smart charging logic.",
     tags: ["OCPP 1.6", "PySide6", "asyncio", "DQN / RL", "matplotlib"],
     images: [
-      { src: "assets/images/projects/chargesim-client.jpeg", alt: "ChargeSim simulator UI with charging sessions and power graph.", caption: "ChargeSim client simulator evidence." },
-      { src: "assets/images/projects/chargesim-server.jpeg", alt: "ChargeSim server UI showing smart charging management.", caption: "ChargeSim central server evidence." }
+      { src: "assets/images/projects/chargesim-client.jpeg", alt: "ChargeSim simulator UI with charging sessions and power graph.", caption: "Charge point simulator screen." },
+      { src: "assets/images/projects/chargesim-server.jpeg", alt: "ChargeSim server UI showing smart charging management.", caption: "Central system monitoring screen." }
     ],
     repo: {
       label: "smart-charging-simulator",
       url: "https://github.com/gnieerfd/smart-charging-simulator"
     },
     meta: {
-      Type: "Work Assignment - Individual",
+      Type: "Individual internship project",
       Org: "BRIN (Badan Riset dan Inovasi Nasional)",
-      Role: "Sole Developer",
+      Role: "Built end-to-end",
       Stack: "Python, PySide6, OCPP 1.6, asyncio, matplotlib, stable-baselines3, MySQL",
       LOC: "4,000+ lines"
     },
     sections: [
-      { title: "Why I Built It", body: "Testing charger behavior on physical hardware is slow and expensive. BRIN needed a repeatable way to test OCPP messages, charging queues, and power allocation before moving to real chargers." },
-      { title: "What I Built", body: "ChargeSim can simulate up to 15 charging sessions with live power graphs and queue management. It replays power curves from BMW iX, Hyundai IONIQ 6, NETA 01, and Toyota bZ4X measurements." },
-      { title: "Hard Part", body: "The tricky part was keeping the PySide6 interface responsive while asyncio handled WebSocket traffic. I used AsyncioPySide6 so the UI could keep updating while OCPP messages moved in the background." },
-      { title: "Note", body: "Implementing both the charger side and central system side made the protocol much easier to understand. The queue design also came from watching how people actually use charging stations." }
+      { title: "My Part", body: "Built both sides of an OCPP 1.6 simulator: charge point clients and a central system server. The app simulates up to 15 sessions, queue tokens, remote start, live power charts, transaction logs, and smart charging limits." },
+      { title: "Why It Mattered", body: "The simulator gave the research team a software-only testbed before touching real chargers. It made protocol behavior, load sharing, queue logic, and charger status visible in one repeatable environment." },
+      { title: "Tools", body: "Python, PySide6, asyncio, AsyncioPySide6, websockets, ocpp-py, matplotlib, pandas, NumPy, MySQL, stable-baselines3 DQN, gymnasium, and HIOKI measurement data from BMW iX, IONIQ 6, NETA 01, and Toyota bZ4X." },
+      { title: "What I Learned", body: "Building the client and server together made OCPP feel concrete. The hardest lesson was concurrency: keeping a Qt GUI responsive while WebSocket traffic, graph redraws, and charging logic run continuously." }
     ]
   },
   {
     id: "jarvis-s2s",
     number: "03",
     title: "Jarvis S2S",
-    type: "Work Assignment - Individual - Telkom Indonesia BigBox",
+    type: "Individual Internship Project - Telkom Indonesia BigBox",
     badge: "Edge AI - DSP",
     summary: "A local speech-to-speech assistant that can run on a normal CPU. It uses VAD, Faster-Whisper, an LLM response step, and text-to-speech output.",
     tags: ["Faster-Whisper", "FastAPI", "FFmpeg DSP", "gTTS", "Docker"],
     images: [
-      { src: "assets/images/projects/jarvis-web.jpeg", alt: "Jarvis S2S web interface showing speech processing result.", caption: "Jarvis web interface evidence." },
-      { src: "assets/images/projects/jarvis-mobile.jpeg", alt: "Jarvis S2S mobile interface showing speech assistant workflow.", caption: "Jarvis mobile view evidence.", tall: true }
+      { src: "assets/images/projects/jarvis-web.jpeg", alt: "Jarvis S2S web interface showing speech processing result.", caption: "Web interface for upload and transcription tests." },
+      { src: "assets/images/projects/jarvis-mobile.jpeg", alt: "Jarvis S2S mobile interface showing speech assistant workflow.", caption: "Mobile layout for the speech assistant flow.", tall: true }
     ],
     repo: {
       label: "Local_Speech-to-Speech_AI-Assistant",
       url: "https://github.com/gnieerfd/Local_Speech-to-Speech_AI-Assistant"
     },
     meta: {
-      Type: "Work Assignment - Individual",
+      Type: "Individual internship project",
       Org: "Telkom Indonesia BigBox",
-      Role: "Sole Developer",
+      Role: "Built end-to-end",
       Stack: "Python, Faster-Whisper, FastAPI, gTTS, PyAudio, FFmpeg, Docker"
     },
     sections: [
-      { title: "Why I Built It", body: "Some voice assistant demos depend too much on cloud APIs. I wanted to see how far I could push a local pipeline where audio stays on the machine as much as possible." },
-      { title: "What I Built", body: "The system detects speech, transcribes it with Faster-Whisper int8, sends the text to an LLM step, and returns spoken output. The FastAPI page compares raw and cleaned audio so the ASR difference is easy to see." },
-      { title: "Design Choices", body: "I used mono 16kHz audio, FFmpeg noise reduction, and a short conversation memory window. Those choices kept the pipeline simpler and lighter for CPU-only testing." },
-      { title: "Note", body: "This project reminded me that edge AI is mostly trade-offs: latency, accuracy, privacy, and hardware limits all pull in different directions." }
+      { title: "My Part", body: "Built a local speech-to-speech pipeline with microphone capture, custom energy-based VAD, Faster-Whisper ASR, LLM response handling, TTS output, and a FastAPI mode for audio upload experiments." },
+      { title: "Why It Mattered", body: "The prototype showed how a privacy-first assistant can run on a normal CPU and compare RAW versus CLEAN audio so the effect of noise reduction on transcription quality is visible." },
+      { title: "Tools", body: "Python, PyAudio, NumPy, Faster-Whisper with int8 CPU inference, FFmpeg afftdn noise reduction, FastAPI, Uvicorn, gTTS, Base64 audio responses, Docker, and an 8-message sliding conversation memory." },
+      { title: "What I Learned", body: "Edge AI is a design problem as much as a model problem. Every choice, from 16kHz mono audio to VAD thresholds and quantization, changed privacy, latency, accuracy, and hardware limits." }
     ]
   },
   {
     id: "shroomify",
     number: "04",
     title: "Shroomify",
-    type: "Group Project (Kelompok 13) - Computer Vision Course - My Role: ML Engineer + Android Dev",
-    badge: "Android - CV",
-    summary: "An offline Android app that classifies mushrooms as edible or poisonous from the camera. I worked on the model pipeline and the Android integration.",
-    tags: ["MobileNetV4", "Kotlin", "CameraX", "PyTorch Mobile", "TensorFlow"],
+    type: "Computer Vision Course Project - ML Engineer",
+    badge: "ML - CV",
+    summary: "An offline mushroom classifier that predicts edible or poisonous from camera/gallery input. My focus was the ML pipeline: dataset cleanup, transfer learning, fine-tuning, and model export for mobile inference.",
+    tags: ["MobileNetV4", "Transfer Learning", "TorchScript", "TensorFlow/Keras", "PyTorch Mobile"],
     images: [
-      { src: "assets/images/projects/shroomify-home.png", alt: "Shroomify Android application showing mushroom classification screen.", caption: "Shroomify Android evidence.", tall: true },
+      { src: "assets/images/projects/shroomify-home.png", alt: "Shroomify Android application showing mushroom classification screen.", caption: "Home screen for mushroom scanning.", tall: true },
       { src: "assets/images/projects/shroomify-camera.png", alt: "Shroomify camera interface on Android.", caption: "Live camera classification screen.", tall: true },
       { src: "assets/images/projects/shroomify-result.png", alt: "Shroomify result screen for mushroom classification.", caption: "Classification result screen.", tall: true }
     ],
     meta: {
       Type: "Group Project - Kelompok 13",
-      Role: "ML Engineer + Android Developer",
-      Stack: "Python, TensorFlow/Keras, PyTorch Mobile, Android, Kotlin, CameraX",
+      Role: "ML Engineer",
+      Stack: "Python, TensorFlow/Keras, MobileNetV4, TorchScript, PyTorch Mobile, Kaggle fungi dataset",
       Duration: "October - December 2025"
     },
     sections: [
-      { title: "Why We Built It", body: "The idea was simple: make a mushroom classifier that still works without internet. That mattered because the app was aimed at quick checks in the field, not a polished lab demo." },
-      { title: "My Part", body: "I handled the model pipeline and Android app work. MobileNetV4 was fine-tuned for edible versus poisonous classification, exported to TorchScript, and connected to CameraX for on-device inference." },
-      { title: "Technical Notes", body: "Training used transfer learning in two phases: freeze the backbone first, then unfreeze deeper layers with a smaller learning rate. Moving to TorchScript made the Android deployment cleaner with PyTorch Mobile." },
-      { title: "Note", body: "The UI lesson was basic but important: use clear green and red results. In a safety-related app, extra decoration can get in the way." }
+      { title: "My Part", body: "Owned the ML workflow: consolidated scattered edible and poisonous fungi classes into a clean binary dataset, added augmentation, trained MobileNetV4, fine-tuned deeper layers, and exported the model for offline inference." },
+      { title: "Why It Mattered", body: "The model made the app useful without internet, which matters in the field where mushrooms are usually found. The green/red prediction pattern kept the result quick to read in a safety-sensitive context." },
+      { title: "Tools", body: "Kaggle Edible and Poisonous Fungi dataset, Python, TensorFlow/Keras, ImageDataGenerator augmentation, MobileNetV4, Adam, EarlyStopping, ReduceLROnPlateau, TorchScript .ptl export, and PyTorch Mobile runtime." },
+      { title: "What I Learned", body: "I got better at making ML decisions under deployment constraints: when to freeze layers, when to fine-tune, how to avoid overfitting, and why model format can matter as much as model accuracy." }
+    ]
+  },
+  {
+    id: "waras",
+    number: "05",
+    title: "WARAS",
+    type: "Business Plan Competition - Finalist PRISMA 2025",
+    badge: "Cyber Safety",
+    summary: "An AI-based plug-and-play micro-gateway concept for reducing online gambling access on shared networks. It combines DNS/SNI filtering, Random Forest classification, hardware planning, and a full business model.",
+    tags: ["Random Forest", "DNS/SNI", "Orange Pi", "Business Model", "Financial Analysis"],
+    images: [
+      { src: "assets/images/projects/waras-title.jpeg", alt: "WARAS Business Plan Competition finalist title slide.", caption: "WARAS finalist title slide." },
+      { src: "assets/images/projects/waras-financial-analysis.jpeg", alt: "WARAS financial analysis slide with business metrics.", caption: "Financial analysis and business feasibility." },
+      { src: "assets/images/projects/waras-marketing-strategy.jpeg", alt: "WARAS marketing strategy slide for target market and channels.", caption: "Marketing strategy and target segment." }
+    ],
+    links: [
+      {
+        label: "Financial Analysis",
+        title: "clips.id/FinancialAnalysisWARAS",
+        url: "https://clips.id/FinancialAnalysisWARAS",
+        icon: "icon-chart"
+      },
+      {
+        label: "Canva Deck",
+        title: "canva.link/t0hs4zbps7vw05r",
+        url: "https://canva.link/t0hs4zbps7vw05r",
+        icon: "icon-link"
+      }
+    ],
+    meta: {
+      Type: "Business Plan Competition",
+      Event: "PRISMA 2025 - UIN Sunan Ampel Surabaya",
+      Team: "Tim GIN Universitas Brawijaya",
+      Result: "Finalist",
+      Role: "Product, business, and technical planning"
+    },
+    sections: [
+      { title: "My Part", body: "Helped shape WARAS from a social problem into a product plan: an Orange Pi-based micro-gateway that sits between router and users, extracts DNS/SNI signals, classifies risky domains with Random Forest, and redirects gambling access to a block page." },
+      { title: "Why It Mattered", body: "WARAS targets kos owners, schools, and families who need safer shared internet without installing apps on every device. The idea protects many users from one network point while keeping the approach less invasive than reading full HTTPS traffic." },
+      { title: "Tools", body: "Business Model Canvas, proposal writing, financial modelling, cost structure, revenue projection, PRISMA competition documents, Orange Pi Zero 3 planning, custom Linux firmware concept, Random Forest, DNS request filtering, SNI-based detection, and Canva pitch materials." },
+      { title: "Business Impact", body: "The plan mapped hardware sales at Rp300.000 per unit, premium subscription at Rp20.000 per month, three-year revenue projection of Rp255.000.000, BEP at 101 units, ROI 70.98%, IRR 108.75%, and payback period around 0.34 years." },
+      { title: "What I Learned", body: "WARAS trained me to connect technical feasibility, market urgency, privacy, hardware cost, and storytelling. It was not just an AI idea; it had to survive questions about users, partners, pricing, distribution, and why the product should exist." }
     ]
   }
 ];
@@ -120,12 +162,14 @@ const organizations = [
     period: "Jun - Jul 2023",
     summary: "Led around 70 operational staff during Jakarta Fair shifts, including attendance, schedules, and on-ground coordination.",
     images: [
-      { src: "assets/images/organizations/jakarta-fair.jpeg", alt: "Jakarta Fair 2023 operations team activity.", caption: "Jakarta Fair 2023 activity evidence." }
+      { src: "assets/images/organizations/jakarta-fair.jpeg", alt: "Jakarta Fair 2023 operations team activity.", caption: "Operations team during Jakarta Fair 2023." }
     ],
     tags: ["70 staff", "30 days", "Operations", "Leadership"],
     sections: [
-      { title: "What I Did", body: "Coordinated attendance, shift allocation, and day-to-day operations for a large event team." },
-      { title: "Takeaway", body: "This role taught me how much clear communication matters when people are tired, shifts are long, and decisions need to be quick." }
+      { title: "My Part", body: "Led roughly 70 operational staff across daily Jakarta Fair shifts, handling attendance, shift allocation, on-ground coordination, and quick escalation when field conditions changed." },
+      { title: "Why It Mattered", body: "The team had clearer daily coordination during a national-scale event with long shifts and high visitor traffic, helping operations stay organized instead of becoming purely reactive." },
+      { title: "How I Worked", body: "Used shift lists, attendance checks, short briefings, direct field communication, and fast handoff between staff groups so people knew where to go and what needed attention." },
+      { title: "What I Learned", body: "Leadership is mostly clarity under pressure: simple instructions, calm follow-up, and decisions that keep tired people moving in the same direction." }
     ]
   },
   {
@@ -136,13 +180,15 @@ const organizations = [
     period: "November 2024",
     summary: "Supported campus visits for Singapore Polytechnic and Vietnam delegations, from communication to tour flow.",
     images: [
-      { src: "assets/images/organizations/global-liaison-singapore.jpg", alt: "Global Liaison Officer activity with Singapore Polytechnic delegation.", caption: "Singapore Polytechnic delegation evidence.", tall: true },
-      { src: "assets/images/organizations/global-liaison-vietnam.jpg", alt: "Global Liaison Officer activity with Vietnam delegation.", caption: "Vietnam delegation evidence.", tall: true }
+      { src: "assets/images/organizations/global-liaison-singapore.jpg", alt: "Global Liaison Officer with Singapore Polytechnic delegation.", caption: "Campus visit with Singapore Polytechnic.", tall: true },
+      { src: "assets/images/organizations/global-liaison-vietnam.jpg", alt: "Global Liaison Officer with Vietnam delegation.", caption: "Campus visit with Vietnam delegation.", tall: true }
     ],
     tags: ["International delegation", "Communication", "Campus tour", "Coordination"],
     sections: [
-      { title: "What I Did", body: "Helped with communication, campus tour flow, and academic visit coordination for international guests." },
-      { title: "Takeaway", body: "I learned to explain context clearly and keep people oriented when language, culture, and schedules all meet at once." }
+      { title: "My Part", body: "Supported Singapore Polytechnic and Vietnam delegation visits, including communication flow, guest guidance, campus tours, academic visit movement, and keeping the schedule understandable for visitors." },
+      { title: "Why It Mattered", body: "Delegates could move through the visit with clearer context about the campus, facilities, and agenda. The role helped reduce friction across language, culture, and schedule differences." },
+      { title: "How I Worked", body: "Used briefing notes, itinerary tracking, direct coordination with committees, route planning, and simple verbal explanations that kept guests oriented without overloading them." },
+      { title: "What I Learned", body: "This role trained me to translate context, not just words. I became more aware of how much hospitality depends on timing, clarity, and reading the room." }
     ]
   },
   {
@@ -153,12 +199,14 @@ const organizations = [
     period: "Mar - Dec 2024",
     summary: "Helped organize Dev Girls events with partners, including Skilvul, and served as PIC for Exclusive Mentoring.",
     images: [
-      { src: "assets/images/organizations/devgirls.jpeg", alt: "Dev Girls event activity.", caption: "Dev Girls event evidence." }
+      { src: "assets/images/organizations/devgirls.jpeg", alt: "Dev Girls event session.", caption: "Dev Girls event session." }
     ],
     tags: ["Event", "PIC", "Skilvul", "UI/UX"],
     sections: [
-      { title: "What I Did", body: "Worked on mentoring sessions, UI/UX workshops, and faculty-level competition activities." },
-      { title: "Takeaway", body: "I got better at planning around real participants: reminders, run-downs, speaker needs, and what attendees actually came for." }
+      { title: "My Part", body: "Helped organize Dev Girls programs from March to December 2024, including UI/UX workshops, mentoring sessions, partner coordination with Skilvul, and PIC work for Exclusive Mentoring." },
+      { title: "Why It Mattered", body: "Participants got more structured mentoring and event flow, while speakers and partners had clearer preparation needs before the session started." },
+      { title: "How I Worked", body: "Handled run-down planning, participant reminders, speaker coordination, mentoring flow checks, and post-event notes so the next activity had fewer repeated issues." },
+      { title: "What I Learned", body: "I learned to plan around real attendee behavior. A good event is not only the idea; it is reminders, pacing, backup plans, and knowing what people came to get." }
     ]
   },
   {
@@ -169,13 +217,35 @@ const organizations = [
     period: "Mar - May 2023",
     summary: "Managed online sessions with 50+ participants on average.",
     images: [
-      { src: "assets/images/organizations/karsacita.jpg", alt: "KarsaCita event activity documentation.", caption: "KarsaCita event activity evidence." },
-      { src: "assets/images/organizations/karsacita-certificate.png", alt: "KarsaCita certificate documentation.", caption: "KarsaCita certificate evidence." }
+      { src: "assets/images/organizations/karsacita.jpg", alt: "KarsaCita event session.", caption: "KarsaCita online event session." },
+      { src: "assets/images/organizations/karsacita-certificate.png", alt: "KarsaCita certificate.", caption: "KarsaCita certificate." }
     ],
     tags: ["Online event", "50+ participants", "Talkshow", "Podcast"],
     sections: [
-      { title: "What I Did", body: "Handled talkshows, Katalk sessions, and mental health podcast programs, including participant communication and internal coordination." },
-      { title: "Takeaway", body: "A live session usually succeeds or fails before it starts. Clear pre-event messages helped more than I expected." }
+      { title: "My Part", body: "Managed online KarsaCita sessions with 50+ participants on average, including talkshows, Katalk sessions, mental health podcast programs, participant communication, and internal coordination." },
+      { title: "Why It Mattered", body: "The sessions ran with clearer joining instructions and smoother communication, helping participants follow the program without confusion before or during the event." },
+      { title: "How I Worked", body: "Prepared online run-downs, participant messages, speaker/session needs, attendance checks, and coordination notes between event staff." },
+      { title: "What I Learned", body: "KarsaCita taught me that online events succeed before they go live. Clear pre-event messages and internal alignment can prevent most visible problems." }
+    ]
+  },
+  {
+    id: "bem-filkom",
+    group: "Leadership & Administration",
+    title: "BEM FILKOM UB 2024",
+    role: "Core Team & Administrative Staff",
+    period: "2024",
+    summary: "Supported BEM FILKOM UB through Leader of Tomorrow core-team work, PUMK accountability, event records, and administrative coordination.",
+    images: [
+      { src: "assets/images/organizations/best-staff-bem.jpeg", alt: "Best Staff recognition for BEM FILKOM UB.", caption: "Best Staff recognition." },
+      { src: "assets/images/organizations/best-staff-bem2.jpeg", alt: "BEM FILKOM UB recognition detail.", caption: "BEM FILKOM UB recognition." }
+    ],
+    tags: ["Best Staff", "Core Team", "PUMK", "LPJ", "Administration"],
+    sections: [
+      { title: "My Part", body: "Served in BEM FILKOM UB 2024 with direct involvement in Leader of Tomorrow 6.0 as Core Team and handled administrative responsibility as Pengguna Anggaran for Leader of Tomorrow Chapter 2." },
+      { title: "Why It Mattered", body: "Helped keep student programs accountable beyond the event day: attendance, funding documents, spending records, LPJ flow, and formal files had to be complete enough for faculty-level review." },
+      { title: "How I Worked", body: "Worked with official memos, presensi files, PUMK accountability sheets, LPJ documents, transfer archives, Google Sheets or Excel-style tables, PDF exports, and WhatsApp coordination with responsible committees." },
+      { title: "For Students", body: "The administrative work supported programs such as Leader of Tomorrow, Career Visit, PKKMB, MSIB Talkshow, HOLOGY, CodeExploit, Raion activities, RECON, ROBIN, RODI, donor blood programs, and entrepreneurship events." },
+      { title: "What I Learned", body: "BEM made me more precise with responsibility. I learned that good leadership also means clean files, correct names, traceable money flow, clear deadlines, and trust that can be audited." }
     ]
   },
   {
@@ -188,8 +258,10 @@ const organizations = [
     images: [],
     tags: ["1,000+ interactions", "150+ content pieces", "LinkedIn", "Twitter"],
     sections: [
-      { title: "What I Did", body: "Managed audience interactions across Twitter and LinkedIn while drafting posts, articles, and brand captions." },
-      { title: "Takeaway", body: "Content work taught me that tone, timing, and response quality build up slowly. Small inconsistencies are easy to notice." }
+      { title: "My Part", body: "Handled 1,000+ audience interactions across Twitter and LinkedIn and helped produce 150+ posts, articles, and brand captions for JetDigital.Pro content and rebranding work." },
+      { title: "Why It Mattered", body: "Audience responses became more consistent, and the content pipeline supported a steadier public presence during the brand communication period." },
+      { title: "How I Worked", body: "Tracked interactions, drafted captions and articles, handled LinkedIn/Twitter content, checked tone consistency, and coordinated with the content team." },
+      { title: "What I Learned", body: "This role sharpened my sense of tone. In public-facing content, small inconsistencies can make a brand feel less careful than it is." }
     ]
   },
   {
@@ -200,12 +272,14 @@ const organizations = [
     period: "Mar - Jun 2025",
     summary: "Developed 50+ content ideas and campaign concepts, including polling, quizzes, and storytelling formats.",
     images: [
-      { src: "assets/images/organizations/instagram-pheromagnetic.jpg", alt: "Instagram content evidence for PT Magnet Aroma Internasional.", caption: "Instagram content evidence found in the folder.", tall: true }
+      { src: "assets/images/organizations/instagram-pheromagnetic.jpg", alt: "Instagram content preview for PT Magnet Aroma Internasional.", caption: "Instagram content preview for PT Magnet Aroma Internasional.", tall: true }
     ],
     tags: ["50+ strategies", "Campaign", "Content planning", "Team lead"],
     sections: [
-      { title: "What I Did", body: "Planned content formats such as polling, quizzes, and storytelling posts while helping organize the planning workflow." },
-      { title: "Takeaway", body: "The same idea can work or fail depending on format and timing. That became very obvious in this role." }
+      { title: "My Part", body: "Developed 50+ content ideas and campaign concepts for PT Magnet Aroma Internasional, including polling, quiz, storytelling, and product education formats." },
+      { title: "Why It Mattered", body: "The content team had more campaign options to choose from and a clearer planning base for turning product messages into audience-friendly posts." },
+      { title: "How I Worked", body: "Used content calendars, idea banks, campaign mapping, format selection, social media observation, and planning discussions with the team." },
+      { title: "What I Learned", body: "I learned that the same message can land very differently depending on format, timing, and how directly it answers what the audience is already wondering." }
     ]
   },
   {
@@ -216,12 +290,14 @@ const organizations = [
     period: "May - Jun 2025",
     summary: "Produced 15+ Instagram and TikTok campaign briefs and became PIC for several campaign posts.",
     images: [
-      { src: "assets/images/organizations/instagram-turbomax.jpg", alt: "Instagram content evidence for Turbomaxx campaign.", caption: "Turbomaxx Instagram campaign evidence.", tall: true }
+      { src: "assets/images/organizations/instagram-turbomax.jpg", alt: "Instagram campaign preview for Turbomaxx.", caption: "Instagram campaign preview for Turbomaxx.", tall: true }
     ],
     tags: ["15+ briefs", "Copywriting", "Instagram", "TikTok"],
     sections: [
-      { title: "What I Did", body: "Wrote campaign briefs and helped manage social media campaigns from planning to publication." },
-      { title: "Takeaway", body: "Copywriting trained me to cut extra words. If the point is unclear, the audience will scroll past it." }
+      { title: "My Part", body: "Produced 15+ Instagram and TikTok campaign briefs for Turbomaxx and served as PIC for several campaign posts from planning through publication." },
+      { title: "Why It Mattered", body: "The briefs gave the creative team clearer direction on hooks, message angle, and platform format, making campaign execution easier to coordinate." },
+      { title: "How I Worked", body: "Wrote campaign briefs, short-form copy, hook options, platform-specific captions, and coordinated with the social media workflow." },
+      { title: "What I Learned", body: "Copywriting trained me to cut extra words. If the point is not visible quickly, the audience will scroll before the campaign gets a chance." }
     ]
   },
   {
@@ -232,12 +308,16 @@ const organizations = [
     period: "Jul - Sep 2025",
     summary: "Processed and checked 800+ participant records for attendance and event reporting.",
     images: [
-      { src: "assets/images/organizations/raja-brawijaya-qr.jpg", alt: "QR attendance design for Raja Brawijaya participant attendance.", caption: "QR attendance design evidence." }
+      { src: "assets/images/organizations/raja-brawijaya-qr.jpg", alt: "QR attendance design for Raja Brawijaya participant attendance.", caption: "QR attendance design." },
+      { src: "assets/images/organizations/raja-brawijaya-pit.jpeg", alt: "Raja Brawijaya 2025 PIT session.", caption: "PIT session at Raja Brawijaya 2025." },
+      { src: "assets/images/organizations/raja-brawijaya-venue.jpeg", alt: "Raja Brawijaya 2025 venue session.", caption: "Raja Brawijaya 2025 venue session." }
     ],
     tags: ["800+ records", "Attendance", "Validation", "Reporting"],
     sections: [
-      { title: "What I Did", body: "Cleaned and validated participant records used for attendance tracking and operational reporting." },
-      { title: "Takeaway", body: "This role made data hygiene feel very concrete. A small record error can slow people down during a real event." }
+      { title: "My Part", body: "Worked as Internal IT staff for Raja Brawijaya 2025, processing and checking 800+ participant records for attendance, QR usage, validation, and reporting needs." },
+      { title: "Why It Mattered", body: "Cleaner participant data helped the event team reduce friction during attendance checks and reporting, especially when many participants had to be processed quickly." },
+      { title: "How I Worked", body: "Handled spreadsheet validation, QR attendance preparation, missing-data checks, participant record cleanup, and coordination with the event operations flow." },
+      { title: "What I Learned", body: "This role made data hygiene feel very concrete. One small record error can slow down real people at a real event gate." }
     ]
   }
 ];
@@ -775,25 +855,38 @@ function renderDetailAside(item) {
 
   return `
     <aside class="detail-aside">
-      <section class="note-panel">
-        <h3>Bukti visual</h3>
-        <p>Foto atau screenshot berikut diambil dari file yang tersedia di folder portfolio.</p>
-      </section>
       ${renderMedia(item.images)}
     </aside>
   `;
 }
 
 function renderProjectActions(item) {
-  if (!item.repo) return "";
+  const links = [];
+
+  if (item.repo) {
+    links.push({
+      label: "GitHub Repo",
+      title: item.repo.label,
+      url: item.repo.url,
+      icon: "icon-code"
+    });
+  }
+
+  if (item.links) {
+    links.push(...item.links);
+  }
+
+  if (!links.length) return "";
 
   return `
     <div class="detail-actions">
-      <a class="detail-action-link" href="${item.repo.url}" target="_blank" rel="noopener">
-        ${icon("icon-code")}
-        <span>GitHub Repo</span>
-        <strong>${item.repo.label}</strong>
-      </a>
+      ${links.map((link) => `
+        <a class="detail-action-link" href="${link.url}" target="_blank" rel="noopener">
+          ${icon(link.icon || "icon-link")}
+          <span>${link.label}</span>
+          <strong>${link.title}</strong>
+        </a>
+      `).join("")}
     </div>
   `;
 }
@@ -901,5 +994,4 @@ setupOrganizationCarousel();
 setupTypewriter();
 setupNavTabs();
 route();
-
 window.addEventListener("hashchange", route);

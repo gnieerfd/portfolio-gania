@@ -1,0 +1,9 @@
+# Source notes and draft documents should not be published by Vercel.
+docs/
+
+# Local preview screenshots used during design checks, not portfolio content.
+assets/images/previews/
+
+# Repository-only files.
+README.md
+.gitignore
