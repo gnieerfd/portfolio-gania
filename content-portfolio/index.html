@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gania Rafidah Huwaida portfolio for content, social media, digital marketing, and event operations.">
+  <title>Gania Rafidah Huwaida - Content & Event Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #241f23;
+      --muted: #6d666b;
+      --soft: #f7f1f5;
+      --paper: #fffdfd;
+      --plum: #8d667f;
+      --plum-dark: #5d3d53;
+      --rose: #eadde6;
+      --line: #e7dfe5;
+      --green: #6f9a82;
+      --gold: #b68a54;
+      --shadow: 0 18px 50px rgba(64, 48, 60, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle, rgba(88, 75, 85, 0.1) 1px, transparent 1px),
+        #fff;
+      background-size: 24px 24px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      padding: 16px 0 0;
+    }
+
+    .nav {
+      width: min(940px, 100%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 12px 10px 18px;
+      border: 1px solid rgba(141, 102, 127, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      padding: 8px 11px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      color: var(--plum-dark);
+      background: var(--soft);
+    }
+
+    .nav-cta {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--plum-dark);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .hero {
+      min-height: auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 58px;
+      align-items: center;
+      padding: 84px 0 92px;
+    }
+
+    .hero > *,
+    .story > *,
+    .campaign-panel > *,
+    .cv-panel > * {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--plum-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: 64px;
+      line-height: 1.04;
+      letter-spacing: 0;
+      font-weight: 700;
+    }
+
+    h1 span,
+    h2 span {
+      color: var(--plum);
+      font-style: italic;
+    }
+
+    h1 .plain-line {
+      color: var(--ink);
+      font-style: normal;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .button.primary {
+      border-color: var(--plum-dark);
+      background: var(--plum-dark);
+      color: #fff;
+    }
+
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 42px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .hero-board {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .hero-photo,
+    .hero-note,
+    .mini-shot {
+      position: absolute;
+      overflow: hidden;
+      border: 1px solid rgba(141, 102, 127, 0.18);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-photo {
+      inset: 40px 58px 92px 0;
+      border-radius: 34px;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-note {
+      right: 0;
+      top: 0;
+      width: 210px;
+      border-radius: 28px;
+      padding: 20px;
+    }
+
+    .hero-note strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .hero-note span {
+      display: block;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .mini-shot {
+      right: 18px;
+      bottom: 24px;
+      width: 245px;
+      border-radius: 24px;
+    }
+
+    .mini-shot img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .floating-label {
+      position: absolute;
+      left: 28px;
+      bottom: 34px;
+      width: min(320px, 80%);
+      border-radius: 20px;
+      background: rgba(93, 61, 83, 0.92);
+      color: #fff;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .floating-label strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .floating-label span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 12px;
+    }
+
+    section {
+      padding: 78px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      font-size: 48px;
+      line-height: 1.02;
+      letter-spacing: 0;
+      font-weight: 700;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .capability {
+      padding: 18px 0 0;
+      border-top: 2px solid var(--rose);
+    }
+
+    .capability h3 {
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .capability p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .story-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr) 270px;
+      gap: 30px;
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      align-items: start;
+    }
+
+    .story:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .story.no-media {
+      grid-template-columns: 210px minmax(0, 1fr);
+    }
+
+    .story-meta {
+      color: var(--plum-dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .story-meta span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .story h3 {
+      font-size: 30px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .story p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .story-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .point {
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .point strong {
+      display: block;
+      color: var(--ink);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 5px;
+    }
+
+    .story-media {
+      overflow: hidden;
+      border-radius: 26px;
+      border: 1px solid rgba(141, 102, 127, 0.18);
+      background: var(--soft);
+    }
+
+    .story-media img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .story-media.tall img {
+      height: 360px;
+    }
+
+    .caption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .campaign-panel {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 30px;
+      align-items: stretch;
+      border: 1px solid rgba(141, 102, 127, 0.18);
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(247, 241, 245, 0.94), rgba(255, 255, 255, 0.94));
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .campaign-copy {
+      padding: 34px;
+    }
+
+    .campaign-copy p {
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    .campaign-copy ul {
+      margin: 20px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .campaign-copy li + li {
+      margin-top: 8px;
+    }
+
+    .campaign-images {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .campaign-images img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .cv-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 34px;
+      align-items: center;
+      padding: 34px;
+      border-radius: 34px;
+      background: var(--plum-dark);
+      color: #fff;
+    }
+
+    .cv-panel p {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .contact-lines {
+      display: grid;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+    }
+
+    .contact-lines a {
+      display: block;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    footer {
+      padding: 28px 0 44px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 940px) {
+      .nav {
+        border-radius: 24px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero,
+      .section-head,
+      .campaign-panel,
+      .cv-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 72px;
+      }
+
+      h1 {
+        font-size: 56px;
+      }
+
+      h2 {
+        font-size: 42px;
+      }
+
+      .story h3 {
+        font-size: 28px;
+      }
+
+      .hero-board {
+        min-height: 520px;
+      }
+
+      .story,
+      .story.no-media {
+        grid-template-columns: 1fr;
+      }
+
+      .story-media {
+        max-width: 420px;
+      }
+
+      .capability-grid,
+      .metric-strip,
+      .story-points {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .shell {
+        width: calc(100% - 22px);
+        max-width: 1120px;
+      }
+
+      .nav {
+        width: calc(100% - 18px);
+        justify-content: center;
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .brand {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .brand,
+      .nav-links {
+        font-size: 12px;
+      }
+
+      .nav-links {
+        order: 2;
+        justify-content: center;
+        gap: 2px;
+      }
+
+      .nav-links a {
+        padding: 7px 8px;
+      }
+
+      .hero {
+        gap: 34px;
+        padding-top: 58px;
+      }
+
+      h1 {
+        max-width: 350px;
+        font-size: 36px;
+        line-height: 1.04;
+        overflow-wrap: anywhere;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      .story h3 {
+        font-size: 24px;
+      }
+
+      h1 span {
+        display: block;
+      }
+
+      .lead {
+        max-width: 330px;
+        font-size: 15px;
+        overflow-wrap: anywhere;
+      }
+
+      .hero-board {
+        min-height: 0;
+        display: grid;
+        gap: 12px;
+        overflow: visible;
+      }
+
+      .hero-photo,
+      .hero-note,
+      .mini-shot,
+      .floating-label {
+        position: static;
+        width: 100%;
+      }
+
+      .hero-photo {
+        height: 260px;
+      }
+
+      .hero-note {
+        padding: 16px;
+      }
+
+      .hero-note strong {
+        font-size: 28px;
+      }
+
+      .mini-shot {
+        width: 100%;
+      }
+
+      .mini-shot img {
+        height: 260px;
+      }
+
+      .floating-label {
+        width: 100%;
+      }
+
+      .metric-strip,
+      .capability-grid,
+      .story-points,
+      .campaign-images {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .campaign-copy,
+      .cv-panel {
+        padding: 24px;
+        border-radius: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#home">Gania Rafidah</a>
+      <div class="nav-links">
+        <a href="#content">Content</a>
+        <a href="#events">Events</a>
+        <a href="#campaign">Campaign</a>
+        <a href="#cv">CV</a>
+      </div>
+      <a class="nav-cta" href="https://wa.me/6288901660277" target="_blank" rel="noreferrer">Let's talk</a>
+    </nav>
+  </div>
+
+  <main id="home" class="shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Content, social media, and event operations</p>
+        <h1 id="hero-title">I turn ideas into <span>clear campaigns</span> <span class="plain-line">and events</span> <span class="plain-line">people can follow.</span></h1>
+        <p class="lead">Hi, I'm Gania. I work across social media admin, campaign planning, copywriting, event coordination, participant flow, and public-facing communication. I like work that looks simple on the outside because the messy details were handled early.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#content">View work</a>
+          <a class="button" href="Gania_Rafidah_Huwaida_Content_Event_CV.md">Open CV MD</a>
+        </div>
+        <div class="metric-strip" aria-label="Portfolio metrics">
+          <div class="metric"><strong>1,000+</strong><span>Audience interactions handled across X and LinkedIn</span></div>
+          <div class="metric"><strong>150+</strong><span>Posts, articles, captions, and rebranding materials</span></div>
+          <div class="metric"><strong>70+</strong><span>Operational staff led at Jakarta Fair</span></div>
+          <div class="metric"><strong>800+</strong><span>Participant records checked for Raja Brawijaya</span></div>
+        </div>
+      </div>
+
+      <div class="hero-board" aria-label="Portfolio visual collage">
+        <figure class="hero-photo">
+          <img src="../assets/images/organizations/jakarta-fair.jpeg" alt="Jakarta Fair operations team activity.">
+        </figure>
+        <div class="hero-note">
+          <strong>3 lanes</strong>
+          <span>Content planning, social media, and event operations.</span>
+        </div>
+        <figure class="mini-shot">
+          <img src="../assets/images/organizations/instagram-pheromagnetic.jpg" alt="Instagram content preview for PT Magnet Aroma Internasional.">
+        </figure>
+        <div class="floating-label">
+          <strong>Calm coordination, visible output.</strong>
+          <span>Campaign notes, rundown checks, audience replies, and post-event reporting.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="content" aria-labelledby="content-title">
+      <div class="section-head">
+        <p class="eyebrow">What I handle</p>
+        <div>
+          <h2 id="content-title">Content work that starts before the post goes live.</h2>
+          <p class="section-copy">My content work is less about sounding loud and more about making the message usable: what the audience should notice, what format fits the platform, and what the team needs before design or publishing starts.</p>
+        </div>
+      </div>
+
+      <div class="capability-grid">
+        <article class="capability">
+          <h3>Social media operations</h3>
+          <p>Audience replies, LinkedIn/X interaction handling, daily response tracking, brand tone consistency, and simple escalation notes.</p>
+        </article>
+        <article class="capability">
+          <h3>Content planning</h3>
+          <p>Content calendars, idea banks, campaign mapping, product education angles, polling, quizzes, storytelling formats, and hooks.</p>
+        </article>
+        <article class="capability">
+          <h3>Copy and briefs</h3>
+          <p>Short-form copy, caption direction, TikTok and Instagram campaign briefs, PIC notes, and readable handoff for creative teams.</p>
+        </article>
+        <article class="capability">
+          <h3>Reporting and admin</h3>
+          <p>Post lists, interaction logs, attendance sheets, participant validation, PDF exports, and documentation that stays useful after the activity ends.</p>
+        </article>
+      </div>
+
+      <div class="story-list" style="margin-top: 46px;">
+        <article class="story no-media">
+          <div class="story-meta">May - Jul 2025<span>SF Group Services Enterprise / JetDigital.Pro</span></div>
+          <div>
+            <h3>Social Media Admin Intern</h3>
+            <p>Handled more than 1,000 audience interactions across X and LinkedIn while helping produce over 150 posts, articles, captions, and rebranding materials. I worked on keeping public replies steady, tracking what needed a response, and making sure daily content did not drift away from the brand tone.</p>
+            <div class="story-points">
+              <div class="point"><strong>What I did</strong>Audience response, content drafting, tone checks, article and caption support.</div>
+              <div class="point"><strong>Impact</strong>A steadier public presence during an active content and rebranding period.</div>
+              <div class="point"><strong>Tools</strong>LinkedIn, X/Twitter, content tracker, Google Docs/Sheets, team review flow.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="story">
+          <div class="story-meta">Mar - Jun 2025<span>PT Magnet Aroma Internasional</span></div>
+          <div>
+            <h3>Content Planner Intern</h3>
+            <p>Developed 50+ content ideas and campaign concepts across polling, quizzes, storytelling, and product education formats. I helped turn product messages into social media angles the audience could understand quickly.</p>
+            <div class="story-points">
+              <div class="point"><strong>What I did</strong>Idea bank, campaign mapping, content calendar, hook options.</div>
+              <div class="point"><strong>Impact</strong>The team had more campaign options and a clearer planning base before execution.</div>
+              <div class="point"><strong>Tools</strong>Instagram observation, content calendar, Google Sheets, planning discussion.</div>
+            </div>
+          </div>
+          <figure class="story-media tall">
+            <img src="../assets/images/organizations/instagram-pheromagnetic.jpg" alt="Instagram content preview for PT Magnet Aroma Internasional.">
+            <figcaption class="caption">Instagram planning preview for PT Magnet Aroma Internasional.</figcaption>
+          </figure>
+        </article>
+
+        <article class="story">
+          <div class="story-meta">May - Jun 2025<span>Turbomaxx</span></div>
+          <div>
+            <h3>Copywriter Intern</h3>
+            <p>Produced 15+ Instagram and TikTok campaign briefs, including hooks, short-form copy, caption directions, and platform-specific angles. I also became PIC for several campaign posts from planning to publication.</p>
+            <div class="story-points">
+              <div class="point"><strong>What I did</strong>Brief writing, campaign hooks, caption direction, PIC coordination.</div>
+              <div class="point"><strong>Impact</strong>Creative execution had clearer message direction and fewer vague handoffs.</div>
+              <div class="point"><strong>Tools</strong>Instagram, TikTok brief format, caption notes, social workflow.</div>
+            </div>
+          </div>
+          <figure class="story-media tall">
+            <img src="../assets/images/organizations/instagram-turbomax.jpg" alt="Instagram campaign preview for Turbomaxx.">
+            <figcaption class="caption">Instagram campaign preview for Turbomaxx.</figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section id="events" aria-labelledby="events-title">
+      <div class="section-head">
+        <p class="eyebrow">Event operations</p>
+        <div>
+          <h2 id="events-title">Events taught me how to make plans survive real people.</h2>
+          <p class="section-copy">Rundowns, staff shifts, participant records, speaker reminders, and guest movement all look small until one of them breaks. My event work sits in those details: keeping people informed, checking the flow, and closing the loop after the event.</p>
+        </div>
+      </div>
+
+      <div class="story-list">
+        <article class="story">
+          <div class="story-meta">Jun - Jul 2023<span>Jakarta Fair 2023</span></div>
+          <div>
+            <h3>Team Leader, Operations</h3>
+            <p>Led around 70 operational staff during a 30-day national-scale event. I handled attendance checks, shift allocation, field coordination, short briefings, handoffs, and escalation when visitor traffic or field conditions changed.</p>
+            <div class="story-points">
+              <div class="point"><strong>What I did</strong>Staff coordination, shift flow, attendance checks, quick handoffs.</div>
+              <div class="point"><strong>Impact</strong>Helped a large team keep moving during long shifts and high-traffic operations.</div>
+              <div class="point"><strong>Tools</strong>Shift lists, attendance sheets, WhatsApp coordination, field briefings.</div>
+            </div>
+          </div>
+          <figure class="story-media">
+            <img src="../assets/images/organizations/jakarta-fair.jpeg" alt="Jakarta Fair operations team activity.">
+            <figcaption class="caption">Operations team during Jakarta Fair 2023.</figcaption>
+          </figure>
+        </article>
+
+        <article class="story">
+          <div class="story-meta">2024<span>BEM FILKOM UB</span></div>
+          <div>
+            <h3>Core Team & Administrative Staff</h3>
+            <p>Served as Core Team for Leader of Tomorrow 6.0 and handled administrative responsibility as Pengguna Anggaran for Leader of Tomorrow Chapter 2. The work covered presensi, PUMK documents, LPJ flow, spending records, transfer archives, and faculty-level reporting.</p>
+            <div class="story-points">
+              <div class="point"><strong>What I did</strong>Program admin, accountability files, event records, funding documents.</div>
+              <div class="point"><strong>Impact</strong>Supported student programs such as LOT, Career Visit, PKKMB, MSIB Talkshow, HOLOGY, CodeExploit, Raion, RECON, ROBIN, RODI, donor blood, and entrepreneurship events.</div>
+              <div class="point"><strong>Recognition</strong>Best Staff - November, BEM FILKOM UB 2024.</div>
+            </div>
+          </div>
+          <figure class="story-media">
+            <img src="../assets/images/organizations/best-staff-bem.jpeg" alt="Best Staff recognition for BEM FILKOM UB.">
+            <figcaption class="caption">Best Staff recognition from BEM FILKOM UB.</figcaption>
+          </figure>
+        </article>
+
+        <article class="story">
+          <div class="story-meta">Jul - Sep 2025<span>Raja Brawijaya 2025</span></div>
+          <div>
+            <h3>Internal IT Staff</h3>
+            <p>Processed and checked 800+ participant records for attendance, QR usage, validation, and event reporting. The role connected spreadsheet hygiene with real event flow because every record had to work when participants arrived.</p>
+            <div class="story-points">
+              <div class="point"><strong>What I did</strong>QR preparation, participant validation, missing-data checks, record cleanup.</div>
+              <div class="point"><strong>Impact</strong>Reduced friction during attendance checks and helped reporting stay cleaner.</div>
+              <div class="point"><strong>Tools</strong>Spreadsheets, QR attendance flow, reporting tables, operations coordination.</div>
+            </div>
+          </div>
+          <figure class="story-media">
+            <img src="../assets/images/organizations/raja-brawijaya-venue.jpeg" alt="Raja Brawijaya 2025 venue session.">
+            <figcaption class="caption">Raja Brawijaya 2025 venue session.</figcaption>
+          </figure>
+        </article>
+
+        <article class="story">
+          <div class="story-meta">2023 - 2024<span>KarsaCita, Dev Girls, Global LO</span></div>
+          <div>
+            <h3>Program, mentoring, and guest flow</h3>
+            <p>Managed online KarsaCita sessions with 50+ participants on average, supported Dev Girls UI/UX workshops and mentoring with Skilvul, and helped guide Singapore Polytechnic and Vietnam campus delegation visits.</p>
+            <div class="story-points">
+              <div class="point"><strong>What I did</strong>Participant messages, speaker checks, mentoring flow, guest guidance.</div>
+              <div class="point"><strong>Impact</strong>Helped sessions and visits feel easier to follow for participants, speakers, partners, and guests.</div>
+              <div class="point"><strong>Tools</strong>Run-downs, WhatsApp, meeting links, attendance checks, itinerary notes.</div>
+            </div>
+          </div>
+          <figure class="story-media">
+            <img src="../assets/images/organizations/devgirls.jpeg" alt="Dev Girls event session.">
+            <figcaption class="caption">Dev Girls event session and mentoring activity.</figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section id="campaign" aria-labelledby="campaign-title">
+      <div class="section-head">
+        <p class="eyebrow">Campaign and business story</p>
+        <div>
+          <h2 id="campaign-title">A business plan also needs a story people can believe.</h2>
+          <p class="section-copy">WARAS is included here because my strongest contribution was not only the product idea, but also the way the market problem, target segment, pricing, financial model, and presentation story were made understandable for a competition setting.</p>
+        </div>
+      </div>
+
+      <article class="campaign-panel">
+        <div class="campaign-copy">
+          <p class="eyebrow">Finalist - PRISMA 2025</p>
+          <h3>WARAS - AI-based cyber safety business plan</h3>
+          <p>WARAS is a plug-and-play micro-gateway concept for safer shared internet access in kos, schools, and family networks. For the business plan, I helped shape the value proposition, customer segment, pricing logic, channel strategy, proposal, financial analysis, and pitch materials.</p>
+          <ul>
+            <li>Mapped hardware pricing at Rp300,000 and premium subscription at Rp20,000 per month.</li>
+            <li>Built a 3-year business case with Rp255,000,000 projected revenue, 101-unit BEP, 70.98% ROI, 108.75% IRR, and 0.34-year payback.</li>
+            <li>Prepared market channels around Instagram, TikTok, X, marketplace distribution, direct kos-owner sales, and education/community outreach.</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="button primary" href="https://clips.id/FinancialAnalysisWARAS" target="_blank" rel="noreferrer">Financial analysis</a>
+            <a class="button" href="https://canva.link/t0hs4zbps7vw05r" target="_blank" rel="noreferrer">Canva deck</a>
+          </div>
+        </div>
+        <div class="campaign-images">
+          <img src="../assets/images/projects/waras-marketing-strategy.jpeg" alt="WARAS marketing strategy slide.">
+          <img src="../assets/images/projects/waras-financial-analysis.jpeg" alt="WARAS financial analysis slide.">
+        </div>
+      </article>
+    </section>
+
+    <section id="cv" aria-labelledby="cv-title">
+      <div class="cv-panel">
+        <div>
+          <p class="eyebrow" style="color: rgba(255,255,255,.72);">CV and contact</p>
+          <h2 id="cv-title">For content, social media, digital marketing, and event roles.</h2>
+          <p>I made a separate CV version for this direction so recruiters do not need to read through the full technical portfolio first. It keeps the same real experience, but frames it around campaign output, event flow, audience handling, and measurable coordination work.</p>
+          <div class="hero-actions">
+            <a class="button" href="Gania_Rafidah_Huwaida_Content_Event_CV.md">Open CV Markdown</a>
+            <a class="button primary" href="mailto:gania.rafida12@gmail.com">Email me</a>
+          </div>
+        </div>
+        <div class="contact-lines">
+          <a href="mailto:gania.rafida12@gmail.com">gania.rafida12@gmail.com</a>
+          <a href="https://wa.me/6288901660277" target="_blank" rel="noreferrer">WhatsApp: 088901660277</a>
+          <a href="https://www.linkedin.com/in/ganiarafida/" target="_blank" rel="noreferrer">linkedin.com/in/ganiarafida</a>
+          <a href="https://portofolio-gania.vercel.app/" target="_blank" rel="noreferrer">Tech portfolio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">Gania Rafidah Huwaida - content, social media, digital marketing, and event operations portfolio.</div>
+  </footer>
+</body>
+</html>
