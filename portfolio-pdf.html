@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gania Rafidah Huwaida - Printable Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #9d7a96;
+      --primary-dark: #6f536b;
+      --ink: #262326;
+      --muted: #686168;
+      --soft: #f6f1f5;
+      --line: #ded2dc;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle, rgba(157, 122, 150, 0.16) 1px, transparent 1px),
+        #fbf9fb;
+      background-size: 24px 24px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .print-actions {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px;
+      background: rgba(251, 249, 251, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .print-actions button,
+    .print-actions a {
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font: 600 13px "Inter", sans-serif;
+      cursor: pointer;
+    }
+
+    .sheet {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 36px 28px 56px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) 260px;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .panel,
+    .card,
+    .project,
+    .org-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 14px 32px rgba(70, 54, 68, 0.08);
+    }
+
+    .panel {
+      padding: 28px;
+    }
+
+    .eyebrow {
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Poppins", sans-serif;
+      color: var(--ink);
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.02;
+      font-weight: 700;
+    }
+
+    h1 em,
+    h2 em {
+      color: var(--primary);
+      font-style: italic;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-copy {
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    .profile-card {
+      overflow: hidden;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+    }
+
+    .profile-label {
+      padding: 14px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      border-top: 1px solid var(--line);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: 16px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--ink);
+      font: 700 24px "Poppins", sans-serif;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    section {
+      margin-top: 22px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      padding: 18px;
+      break-inside: avoid;
+    }
+
+    .meta {
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    li + li {
+      margin-top: 5px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      border-radius: 9px;
+      padding: 5px 9px;
+      background: var(--soft);
+      color: var(--primary-dark);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 18px;
+      padding: 16px;
+      margin-bottom: 14px;
+      break-inside: avoid;
+    }
+
+    .project img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .project .caption {
+      margin-top: 8px;
+      color: var(--primary-dark);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .project-body p {
+      margin-bottom: 10px;
+    }
+
+    .org-card {
+      padding: 16px;
+      break-inside: avoid;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .contact-item {
+      padding: 14px;
+      border-radius: 16px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 760px) {
+      .hero,
+      .project,
+      .grid-2,
+      .grid-3,
+      .stats,
+      .contact-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .print-actions {
+        display: none;
+      }
+
+      .sheet {
+        max-width: none;
+        padding: 0;
+      }
+
+      .panel,
+      .card,
+      .project,
+      .org-card {
+        box-shadow: none;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+
+      .project {
+        grid-template-columns: 210px minmax(0, 1fr);
+      }
+
+      .project img {
+        height: 145px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-actions">
+    <button type="button" onclick="window.print()">Save Portfolio as PDF</button>
+    <a href="index.html">Back to website</a>
+    <a href="Gania_Rafidah_Huwaida_CV.md">Open CV Markdown</a>
+  </div>
+
+  <main class="sheet">
+    <header class="hero">
+      <div class="panel">
+        <div class="eyebrow">Portfolio PDF</div>
+        <h1>Gania Rafidah Huwaida</h1>
+        <p class="hero-copy">Computer Engineering student at Universitas Brawijaya with a 3.65/4.00 GPA. I build practical systems around EV charging data, OCPP simulation, local voice AI, mobile computer vision, and AI-backed cyber safety products.</p>
+        <div class="stats">
+          <div class="stat"><strong>5+</strong><span>Projects Built</span></div>
+          <div class="stat"><strong>2+</strong><span>National Internships</span></div>
+          <div class="stat"><strong>3.65</strong><span>GPA / 4.00</span></div>
+          <div class="stat"><strong>70+</strong><span>Staff Led</span></div>
+        </div>
+      </div>
+      <div class="profile-card panel">
+        <img src="assets/images/profile/gania-almet.jpg" alt="Gania Rafidah Huwaida wearing university blazer.">
+        <div class="profile-label">Computer Engineering - AI, IoT, Data</div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="eyebrow">About</div>
+      <h2>Building tools people can <em>use.</em></h2>
+      <p>I am drawn to systems where software touches the physical world: a charger sending live power data, a microphone turning speech into action, or a mobile camera running a model offline. At BRIN, I built EV charging tools for monitoring, forecasting, OCPP simulation, and smart charging experiments. At Telkom Indonesia BigBox, I explored local speech-to-speech AI with DSP, ASR, FastAPI, and CPU-friendly model choices.</p>
+    </section>
+
+    <section>
+      <div class="panel">
+        <div class="eyebrow">Work Experience</div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="meta">Dec 2025 - Jan 2026</div>
+            <h3>Data & Automation Intern - Telkom Indonesia BigBox</h3>
+            <ul>
+              <li>Built a local speech-to-speech assistant using Python, FastAPI, Faster-Whisper, PyAudio, FFmpeg, VAD, and gTTS.</li>
+              <li>Designed CPU-friendly int8 inference and RAW vs CLEAN audio comparison, then set up a small n8n, Docker, and Google Sheets API retrieval workflow.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="meta">Feb 2026 - Jul 2026</div>
+            <h3>Research Software Intern - BRIN</h3>
+            <ul>
+              <li>Built Enerlytics, a Flask dashboard for EV charging data with upload, MySQL loading, charts, alerts, and forecasting models.</li>
+              <li>Built ChargeSim, an OCPP 1.6 simulator for up to 15 charging sessions with smart charging limits and real EV power curves.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="meta">Jun 2023 - Jul 2023</div>
+            <h3>Team Leader, Operations - Jakarta Fair</h3>
+            <ul>
+              <li>Led around 70 operational staff during a 30-day national-scale event.</li>
+              <li>Managed attendance, shift allocation, field coordination, handoffs, and escalation during high-traffic operations.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="eyebrow">Skills</div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Backend & Data</h3>
+          <p>Python, Flask, FastAPI, MySQL, SQL, Docker, REST API, CSV/XLSX processing, dashboard data flow.</p>
+        </div>
+        <div class="card">
+          <h3>Machine Learning & AI</h3>
+          <p>scikit-learn, XGBoost, CatBoost, LSTM, TensorFlow/Keras, PyTorch, MobileNetV4, transfer learning, forecasting, classification.</p>
+        </div>
+        <div class="card">
+          <h3>Audio, IoT & Frontend</h3>
+          <p>Faster-Whisper, PyAudio, VAD, ASR, FFmpeg, OCPP 1.6, WebSocket, asyncio, PySide6, Chart.js, Android, Kotlin, CameraX.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel">
+        <div class="eyebrow">Selected Projects</div>
+        <h2>Projects with <em>working context.</em></h2>
+
+        <article class="project">
+          <div>
+            <img src="assets/images/projects/enerlytics-dashboard.jpeg" alt="Enerlytics forecasting dashboard.">
+            <div class="caption">EV charging forecasting dashboard</div>
+          </div>
+          <div class="project-body">
+            <h3>Enerlytics - EV Charging Forecasting Dashboard</h3>
+            <p>A Flask dashboard for EV charging data with live metrics, CSV/XLSX upload, MySQL-backed loading, KPI cards, daily energy tables, Chart.js visualizations, and anomaly alerts.</p>
+            <p>Compared XGBoost, CatBoost, LSTM, ARIMA, SVR, ANN, GBDT, and DeepBoost to support model-backed capacity planning.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">MySQL</span><span class="tag">Chart.js</span><span class="tag">XGBoost</span><span class="tag">LSTM</span></div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <img src="assets/images/projects/chargesim-client.jpeg" alt="ChargeSim simulator UI.">
+            <div class="caption">OCPP charge point simulator</div>
+          </div>
+          <div class="project-body">
+            <h3>ChargeSim - Smart Charging Simulator</h3>
+            <p>An OCPP 1.6 simulator covering charge point clients and a central system server, with queue tokens, remote start, live power charts, transaction logs, and smart charging limits.</p>
+            <p>Simulates up to 15 sessions and uses real EV power curves from BMW iX, IONIQ 6, NETA 01, and Toyota bZ4X. Repository: github.com/gnieerfd/smart-charging-simulator.</p>
+            <div class="tags"><span class="tag">OCPP 1.6</span><span class="tag">PySide6</span><span class="tag">asyncio</span><span class="tag">matplotlib</span><span class="tag">DQN</span></div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <img src="assets/images/projects/jarvis-web.jpeg" alt="Jarvis S2S web interface.">
+            <div class="caption">Local speech-to-speech assistant</div>
+          </div>
+          <div class="project-body">
+            <h3>Jarvis S2S - Local Voice AI</h3>
+            <p>A local speech-to-speech assistant with microphone capture, custom VAD, Faster-Whisper ASR, LLM response handling, TTS output, and a FastAPI upload mode.</p>
+            <p>Uses int8 CPU inference and FFmpeg noise reduction for privacy-friendly speech AI on modest hardware. Repository: github.com/gnieerfd/Local_Speech-to-Speech_AI-Assistant.</p>
+            <div class="tags"><span class="tag">Faster-Whisper</span><span class="tag">FastAPI</span><span class="tag">PyAudio</span><span class="tag">FFmpeg</span><span class="tag">Docker</span></div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <img src="assets/images/projects/shroomify-result.png" alt="Shroomify classification result screen.">
+            <div class="caption">Offline mushroom classification</div>
+          </div>
+          <div class="project-body">
+            <h3>Shroomify - Offline Mushroom Classifier</h3>
+            <p>Owned the ML workflow for an Android mushroom classifier: dataset cleanup, augmentation, MobileNetV4 training, fine-tuning, and model export.</p>
+            <p>Focused on binary edible/poisonous classification for offline mobile inference using TorchScript and PyTorch Mobile.</p>
+            <div class="tags"><span class="tag">MobileNetV4</span><span class="tag">TensorFlow/Keras</span><span class="tag">PyTorch Mobile</span><span class="tag">Transfer Learning</span></div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <img src="assets/images/projects/waras-financial-analysis.jpeg" alt="WARAS financial analysis slide.">
+            <div class="caption">Business plan and financial model</div>
+          </div>
+          <div class="project-body">
+            <h3>WARAS - AI-Based Cyber Safety Business Plan</h3>
+            <p>An AI-based plug-and-play micro-gateway concept using DNS/SNI filtering, Random Forest classification, selective redirection, Orange Pi Zero 3 hardware, and custom Linux firmware concepts.</p>
+            <p>Mapped Rp255,000,000 projected 3-year revenue, 101-unit BEP, 70.98% ROI, 108.75% IRR, and 0.34-year payback. Finalist at PRISMA 2025.</p>
+            <div class="tags"><span class="tag">Random Forest</span><span class="tag">DNS/SNI</span><span class="tag">Orange Pi</span><span class="tag">Financial Analysis</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="eyebrow">Organisation & Leadership</div>
+      <div class="grid-2">
+        <article class="org-card">
+          <h3>BEM FILKOM UB 2024</h3>
+          <p>Core Team for Leader of Tomorrow 6.0 and Pengguna Anggaran for Leader of Tomorrow Chapter 2. Supported attendance records, PUMK documents, LPJ flow, funding files, and faculty-level reporting. Recognized as Best Staff - November.</p>
+        </article>
+        <article class="org-card">
+          <h3>Raja Brawijaya 2025</h3>
+          <p>Processed and checked 800+ participant records for attendance, QR usage, validation, and event reporting, reducing friction during large-scale attendance checks.</p>
+        </article>
+        <article class="org-card">
+          <h3>Global Liaison Officer</h3>
+          <p>Supported Singapore Polytechnic and Vietnam delegation visits through guest guidance, communication flow, campus tours, and schedule movement.</p>
+        </article>
+        <article class="org-card">
+          <h3>Dev Girls & KarsaCita</h3>
+          <p>Supported UI/UX workshops, mentoring sessions, partner coordination with Skilvul, and online sessions with 50+ participants on average.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="eyebrow">Achievements</div>
+      <div class="grid-3">
+        <div class="card"><h3>Finalist</h3><p>WARAS Business Plan Competition, PRISMA UINSA 2025.</p></div>
+        <div class="card"><h3>Best Staff</h3><p>BEM FILKOM UB 2024, November recognition.</p></div>
+        <div class="card"><h3>Academic Awards</h3><p>Gold Medal - Computer Science, Bronze Medal - Mathematics, and Microsoft Azure AI Fundamentals.</p></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="eyebrow">Contact</div>
+      <div class="contact-row">
+        <div class="contact-item"><strong>Email</strong>gania.rafida12@gmail.com</div>
+        <div class="contact-item"><strong>WhatsApp</strong>088901660277</div>
+        <div class="contact-item"><strong>GitHub</strong>github.com/gnieerfd</div>
+        <div class="contact-item"><strong>LinkedIn</strong>linkedin.com/in/ganiarafida</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
