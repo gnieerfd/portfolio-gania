@@ -14,7 +14,7 @@
       --ink: #262326;
       --muted: #686168;
       --soft: #f6f1f5;
-      --line: #ded2dc;
+      --line: #e2d7e0;
       --card: #ffffff;
     }
 
@@ -27,9 +27,9 @@
       font-family: "Inter", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle, rgba(157, 122, 150, 0.16) 1px, transparent 1px),
-        #fbf9fb;
-      background-size: 24px 24px;
+        radial-gradient(circle, rgba(80, 74, 80, 0.09) 1px, transparent 1px),
+        #fff;
+      background-size: 26px 26px;
       line-height: 1.55;
     }
 
@@ -46,7 +46,7 @@
       justify-content: center;
       gap: 12px;
       padding: 14px;
-      background: rgba(251, 249, 251, 0.88);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
@@ -56,38 +56,44 @@
       border: 1px solid var(--line);
       background: var(--card);
       color: var(--ink);
-      border-radius: 12px;
+      border-radius: 9px;
       padding: 10px 14px;
-      font: 600 13px "Inter", sans-serif;
+      font: 600 12px "Inter", sans-serif;
       cursor: pointer;
     }
 
     .sheet {
-      max-width: 1080px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 36px 28px 56px;
+      padding: 44px 32px 64px;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.55fr) 260px;
-      gap: 28px;
-      align-items: stretch;
-      margin-bottom: 22px;
+      grid-template-columns: minmax(0, 1.55fr) 240px;
+      gap: 38px;
+      align-items: start;
+      margin-bottom: 10px;
     }
 
     .panel,
     .card,
     .project,
     .org-card {
-      background: rgba(255, 255, 255, 0.94);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: 0 14px 32px rgba(70, 54, 68, 0.08);
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .panel {
-      padding: 28px;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero .panel {
+      padding-top: 0;
+      border-top: 0;
     }
 
     .eyebrow {
@@ -111,7 +117,7 @@
       margin: 0 0 14px;
       font-size: clamp(38px, 6vw, 62px);
       line-height: 1.02;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     h1 em,
@@ -124,12 +130,14 @@
       margin: 0 0 18px;
       font-size: 30px;
       line-height: 1.15;
+      font-weight: 600;
     }
 
     h3 {
       margin: 0 0 8px;
       font-size: 18px;
       line-height: 1.25;
+      font-weight: 600;
     }
 
     p {
@@ -145,44 +153,43 @@
 
     .profile-card {
       overflow: hidden;
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
+      min-height: 0;
+      display: block;
+      padding-left: 24px;
+      border-left: 1px solid var(--line);
     }
 
     .profile-card img {
       width: 100%;
-      height: 100%;
-      min-height: 260px;
+      height: 286px;
       object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 14px;
     }
 
     .profile-label {
-      padding: 14px 16px;
+      padding: 10px 0 0;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--primary-dark);
-      border-top: 1px solid var(--line);
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 22px;
+      gap: 18px;
+      margin-top: 26px;
     }
 
     .stat {
-      padding: 14px;
-      border-radius: 16px;
-      background: var(--soft);
-      border: 1px solid var(--line);
+      padding: 2px 0 2px 12px;
+      border-left: 2px solid var(--primary);
     }
 
     .stat strong {
       display: block;
       color: var(--ink);
-      font: 700 24px "Poppins", sans-serif;
+      font: 600 24px "Poppins", sans-serif;
       line-height: 1;
       margin-bottom: 6px;
     }
@@ -193,23 +200,24 @@
     }
 
     section {
-      margin-top: 22px;
+      margin-top: 0;
     }
 
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+      gap: 22px 30px;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 22px 28px;
     }
 
     .card {
-      padding: 18px;
+      padding: 14px 0 0;
+      border-top: 1px solid var(--line);
       break-inside: avoid;
     }
 
@@ -239,28 +247,30 @@
     }
 
     .tag {
-      border-radius: 9px;
-      padding: 5px 9px;
-      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 4px 8px;
+      background: rgba(255, 255, 255, 0.72);
       color: var(--primary-dark);
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .project {
       display: grid;
-      grid-template-columns: 270px minmax(0, 1fr);
-      gap: 18px;
-      padding: 16px;
-      margin-bottom: 14px;
+      grid-template-columns: 238px minmax(0, 1fr);
+      gap: 24px;
+      padding: 22px 0;
+      margin-bottom: 0;
+      border-top: 1px solid var(--line);
       break-inside: avoid;
     }
 
     .project img {
       width: 100%;
-      height: 190px;
+      height: 150px;
       object-fit: cover;
-      border-radius: 16px;
+      border-radius: 10px;
       border: 1px solid var(--line);
       background: var(--soft);
     }
@@ -277,7 +287,8 @@
     }
 
     .org-card {
-      padding: 16px;
+      padding: 14px 0 0;
+      border-top: 1px solid var(--line);
       break-inside: avoid;
     }
 
@@ -288,10 +299,8 @@
     }
 
     .contact-item {
-      padding: 14px;
-      border-radius: 16px;
-      background: var(--soft);
-      border: 1px solid var(--line);
+      padding: 12px 0 0;
+      border-top: 1px solid var(--line);
       font-size: 12px;
       color: var(--muted);
     }
