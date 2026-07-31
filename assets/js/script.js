@@ -3,38 +3,41 @@ const projects = [
     id: "enerlytics",
     number: "01 - Featured",
     title: "Enerlytics",
-    type: "Individual Internship Project - BRIN",
+    type: "Internship Project - BRIN",
     badge: "Energy AI",
-    summary: "A Flask dashboard for EV charging data. It shows live power metrics, flags unusual values, and compares forecasting models, including my DeepBoost ensemble.",
-    tags: ["Python", "Flask", "OCPP 1.6", "XGBoost", "LSTM", "MySQL"],
+    summary: "A full-stack energy analytics platform that unifies OCPP, Modbus, MQTT, file, and API data, then compares seven forecasting models in one operator-facing dashboard.",
+    tags: ["Python", "Flask", "OCPP 1.6", "Modbus TCP", "Forecasting", "MySQL"],
     images: [
-      { src: "assets/images/projects/enerlytics-dashboard.jpeg", alt: "Enerlytics forecasting dashboard with EV charging charts.", caption: "Forecast dashboard for EV charging sessions." },
-      { src: "assets/images/projects/enerlytics-login.jpeg", alt: "Enerlytics login screen.", caption: "Login page for the dashboard." }
+      { src: "assets/images/projects/enerlytics-dashboard.jpeg", alt: "Enerlytics forecasting dashboard with EV charging charts.", caption: "Forecasting workspace with model evaluation and charging-energy trends." },
+      { src: "assets/images/projects/enerlytics-login.jpeg", alt: "Enerlytics login screen.", caption: "Authenticated entry point for the monitoring platform." }
     ],
     meta: {
       Type: "Individual internship project",
-      Org: "BRIN (Badan Riset dan Inovasi Nasional)",
-      Role: "Built end-to-end",
-      Stack: "Python, Flask, scikit-learn, XGBoost, LSTM, MySQL, Chart.js"
+      Org: "BRIN - E-Mobility Research Group",
+      Period: "February - July 2026",
+      Role: "End-to-end full-stack and ML development",
+      Stack: "Python, Flask, SQLAlchemy, MySQL, OCPP 1.6, Modbus TCP, MQTT, Chart.js"
     },
     sections: [
-      { title: "My Part", body: "Built the Flask dashboard end-to-end: login-protected pages, CSV/XLSX upload, database loading, KPI cards, daily energy tables, four Chart.js charts, and threshold-based anomaly alerts for voltage, current, and power spikes." },
-      { title: "Why It Mattered", body: "Researchers and operators could inspect charging behavior from a browser instead of querying raw MySQL tables. Forecasting also moved capacity planning from intuition to model-backed numbers." },
-      { title: "Tools", body: "Python, Flask, Pandas, NumPy, MySQL, Chart.js, OCPP 1.6 WebSocket handling, scikit-learn, XGBoost, CatBoost, LSTM, ARIMA, SVR, ANN, GBDT, and a DeepBoost stacking ensemble." },
-      { title: "What I Learned", body: "Energy AI is not only model selection. The useful part is the whole pipeline: messy OCPP data, careful preprocessing, readable metrics, alert language, and a UI that non-ML users can trust." }
+      { title: "My Part", body: "Built the Flask platform end-to-end: 20+ REST endpoints, a 12+ table SQLAlchemy schema, authenticated monitoring pages, CSV/XLSX ingestion, simulators for hardware-free testing, and service layers for OCPP, Modbus, MQTT, database access, and forecasting." },
+      { title: "Forecasting Pipeline", body: "Implemented and compared LSTM, ARIMA, GBDT, XGBoost, SVR, ANN, and a DeepBoost stacking ensemble. The workflow normalizes cumulative and interval energy data, preserves weekly time order for evaluation, reports MAPE, SMAPE, WAPE, MAE, RMSE, and R-squared, and guards against implausible future predictions." },
+      { title: "Why It Mattered", body: "The research team could inspect charger, meter, sensor, file, and API data from one interface instead of several disconnected tools. Raw protocol logs and explicit metric interpretation also made model and charger behavior easier to debug." },
+      { title: "What I Learned", body: "Real energy systems rarely match clean academic examples. Hardware can skip expected OCPP steps, telemetry arrives in inconsistent formats and units, and a useful ML feature needs robust ingestion, honest evaluation, readable alerts, and fallbacks around the model." }
     ]
   },
   {
     id: "chargesim",
     number: "02",
     title: "ChargeSim",
-    type: "Individual Internship Project - BRIN",
-    badge: "IoT - Simulation",
-    summary: "A desktop simulator for EV charging research. It runs charger sessions, talks over OCPP 1.6, replays real EV power curves, and tests smart charging logic.",
-    tags: ["OCPP 1.6", "PySide6", "asyncio", "DQN / RL", "matplotlib"],
+    type: "Internship Project - BRIN",
+    badge: "OCPP - Smart Charging",
+    summary: "A Python and PySide6 CSMS testbed for multi-charge-point OCPP 1.6 sessions, queue management, transaction logging, real-time power visualization, and dynamic power sharing.",
+    tags: ["OCPP 1.6", "PySide6", "WebSocket", "Smart Power Sharing", "MySQL"],
     images: [
-      { src: "assets/images/projects/chargesim-client.jpeg", alt: "ChargeSim simulator UI with charging sessions and power graph.", caption: "Charge point simulator screen." },
-      { src: "assets/images/projects/chargesim-server.jpeg", alt: "ChargeSim server UI showing smart charging management.", caption: "Central system monitoring screen." }
+      { src: "assets/images/projects/chargesim-client.jpeg", alt: "ChargeSim client UI with a charging profile and live power graph.", caption: "GUI charge-point simulator for repeatable OCPP session testing." },
+      { src: "assets/images/projects/chargesim-server.jpeg", alt: "ChargeSim server UI comparing power across active charge points.", caption: "Multi-charge-point power overview on the CSMS." },
+      { src: "assets/images/projects/chargesim-server-queue management.jpeg", alt: "ChargeSim queue management dashboard with charger status and real-time power graph.", caption: "Queue management, charger availability, and power-flow monitoring." },
+      { src: "assets/images/projects/chargesim-server-total power.jpeg", alt: "ChargeSim total power chart showing changes over time.", caption: "Aggregated total-power history for smart-charging analysis." }
     ],
     repo: {
       label: "smart-charging-simulator",
@@ -42,21 +45,47 @@ const projects = [
     },
     meta: {
       Type: "Individual internship project",
-      Org: "BRIN (Badan Riset dan Inovasi Nasional)",
-      Role: "Built end-to-end",
-      Stack: "Python, PySide6, OCPP 1.6, asyncio, matplotlib, stable-baselines3, MySQL",
-      LOC: "4,000+ lines"
+      Org: "BRIN - E-Mobility Research Group",
+      Period: "February - July 2026",
+      Role: "CSMS, simulator client, and deployment workflow",
+      Stack: "Python, PySide6, asyncio, OCPP 1.6-J, WebSocket, MySQL, Raspberry Pi"
     },
     sections: [
-      { title: "My Part", body: "Built both sides of an OCPP 1.6 simulator: charge point clients and a central system server. The app simulates up to 15 sessions, queue tokens, remote start, live power charts, transaction logs, and smart charging limits." },
-      { title: "Why It Mattered", body: "The simulator gave the research team a software-only testbed before touching real chargers. It made protocol behavior, load sharing, queue logic, and charger status visible in one repeatable environment." },
-      { title: "Tools", body: "Python, PySide6, asyncio, AsyncioPySide6, websockets, ocpp-py, matplotlib, pandas, NumPy, MySQL, stable-baselines3 DQN, gymnasium, and HIOKI measurement data from BMW iX, IONIQ 6, NETA 01, and Toyota bZ4X." },
-      { title: "What I Learned", body: "Building the client and server together made OCPP feel concrete. The hardest lesson was concurrency: keeping a Qt GUI responsive while WebSocket traffic, graph redraws, and charging logic run continuously." }
+      { title: "My Part", body: "Built the CSMS and simulator clients for up to 15 charge-point slots, including OCPP message handling, remote start and stop flows, queue management, live power graphs, Power Flow Overview, MySQL transaction storage, CSV export, RFID preparation, and a headless Raspberry Pi client." },
+      { title: "Smart Power Sharing", body: "Implemented configurable power allocation from the remaining contract capacity after other loads are deducted. The server recalculates active-session limits and sends charging profiles so multi-charger behavior can be studied without requiring a full physical charging site." },
+      { title: "Verified Physical Integration", body: "Validated the first connection layer with a BRIN charge point: the CSMS accepted the WebSocket connection, received StatusNotification and Heartbeat, and returned the expected response. Full physical transactions, MeterValues, and SetChargingProfile application remain documented as follow-up validation rather than fully verified claims." },
+      { title: "What I Learned", body: "Building both sides made protocol behavior concrete. The hardest engineering work was coordinating Qt, asyncio, WebSocket traffic, graph redraws, transaction state, and hardware-network constraints while keeping the interface responsive and the test results honest." }
+    ]
+  },
+  {
+    id: "ems-modbus",
+    number: "03",
+    title: "EMS Modbus",
+    type: "Internship Project - BRIN",
+    badge: "Industrial IoT",
+    summary: "A real-time energy acquisition pipeline that reads three smart meters over Modbus TCP, validates raw registers, stores time-series data in MySQL, publishes MQTT telemetry, and serves a secured Streamlit dashboard.",
+    tags: ["Modbus TCP", "MQTT", "Streamlit", "SQLAlchemy", "MySQL", "bcrypt"],
+    images: [
+      { src: "assets/images/projects/ems-modbus.png", alt: "EMS Modbus dashboard publishing smart-meter readings to MQTT and a local database.", caption: "Operational Modbus publisher with MQTT, local database, authentication, CAPTCHA, and charts." },
+      { src: "assets/images/projects/ems-modbus-pipeline.svg", alt: "EMS Modbus architecture showing three smart meters, a Python validation pipeline, MySQL, MQTT, and Streamlit.", caption: "Architecture of the real-time Modbus acquisition and distribution pipeline." }
+    ],
+    meta: {
+      Type: "Individual internship project",
+      Org: "BRIN - E-Mobility Research Group",
+      Period: "June - July 2026",
+      Role: "Data acquisition, processing, storage, and dashboard",
+      Stack: "Python, pymodbus, Paho MQTT, Pandas, SQLAlchemy, MySQL, Streamlit, bcrypt"
+    },
+    sections: [
+      { title: "My Part", body: "Built the acquisition path for nine energy parameters from three smart-meter units: voltage, current, frequency, and active power. The pipeline reconstructs float values from holding registers, buffers recent readings, logs validated records to MySQL, and publishes JSON telemetry through MQTT at configurable intervals." },
+      { title: "Data Quality", body: "Handled field-data problems at the driver layer: 0x8000 error registers, missing and non-finite values, byte-order differences, scaling variants, address offsets, and implausible frequency readings. A multi-strategy decoder accepts values only after checking the expected 40-70 Hz operating range." },
+      { title: "Dashboard & Reliability", body: "Created a Streamlit monitoring interface with tabular and chart views, bcrypt password hashing, role-aware access, and arithmetic CAPTCHA. A bounded deque keeps the visual buffer responsive during long-running monitoring instead of letting memory grow without limit." },
+      { title: "What I Learned", body: "Industrial IoT shifted my focus from merely reading a sensor to building a dependable path around it. Network loss, dirty register values, storage cadence, UI memory, and credential handling all matter before real-time data becomes trustworthy." }
     ]
   },
   {
     id: "jarvis-s2s",
-    number: "03",
+    number: "04",
     title: "Jarvis S2S",
     type: "Individual Internship Project - Telkom Indonesia BigBox",
     badge: "Edge AI - DSP",
@@ -85,7 +114,7 @@ const projects = [
   },
   {
     id: "shroomify",
-    number: "04",
+    number: "05",
     title: "Shroomify",
     type: "Computer Vision Course Project - ML Engineer",
     badge: "ML - CV",
@@ -111,7 +140,7 @@ const projects = [
   },
   {
     id: "waras",
-    number: "05",
+    number: "06",
     title: "WARAS",
     type: "Business Plan Competition - Finalist PRISMA 2025",
     badge: "Cyber Safety",

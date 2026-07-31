@@ -1,6 +1,6 @@
 # Gania Rafidah Huwaida
 
-Computer Engineering student at Universitas Brawijaya with a 3.65/4.00 GPA. I work across applied AI, EV charging systems, speech processing, data dashboards, and product-oriented technical planning. My strongest work sits close to real-world systems: chargers sending telemetry, microphones turning speech into action, mobile cameras running models offline, and network tools built around user safety.
+Computer Engineering student at Universitas Brawijaya with a 3.65/4.00 GPA. During a six-month research internship at BRIN, I delivered applied AI, EV charging, and industrial IoT systems across OCPP, Modbus TCP, MQTT, forecasting, and real-time dashboards. My strongest work sits close to real-world systems: chargers sending telemetry, smart meters producing field data, microphones turning speech into action, and mobile cameras running models offline.
 
 **Email:** gania.rafida12@gmail.com  
 **WhatsApp:** 088901660277  
@@ -16,11 +16,13 @@ Computer Engineering student at Universitas Brawijaya with a 3.65/4.00 GPA. I wo
 - Built a local speech-to-speech assistant with Python, FastAPI, Faster-Whisper, PyAudio, FFmpeg, VAD, and gTTS, covering microphone capture, ASR, response handling, and text-to-speech output.
 - Designed the prototype to run on a normal CPU with int8 inference and RAW vs CLEAN audio comparison, then set up a small n8n, Docker, and Google Sheets API workflow for knowledge retrieval experiments.
 
-### Research Software Intern - BRIN, Badan Riset dan Inovasi Nasional
-**Feb 2026 - Jul 2026**
+### Machine Learning Research Intern - BRIN, Badan Riset dan Inovasi Nasional
+**Feb 2026 - Jul 2026 (6 months)**
 
-- Built **Enerlytics**, a Flask dashboard for EV charging research with CSV/XLSX upload, MySQL-backed data loading, KPI cards, daily energy tables, Chart.js visualizations, anomaly alerts, and forecasting with XGBoost, CatBoost, LSTM, ARIMA, SVR, ANN, GBDT, and DeepBoost.
-- Built **ChargeSim**, an OCPP 1.6 simulator for up to **15 charging sessions**, with charge point clients, a central system server, queue tokens, remote start, live power charts, smart charging limits, and real EV power curves from BMW iX, IONIQ 6, NETA 01, and Toyota bZ4X.
+- Joined BRIN's E-Mobility research group for a six-month placement, delivering three connected prototypes for EV charging analytics, protocol testing, and laboratory energy monitoring.
+- Built **Enerlytics**, a Flask platform that unifies OCPP, Modbus, MQTT, file, and API data through 20+ REST endpoints and a 12+ table SQLAlchemy schema, with seven forecasting models and explicit evaluation metrics.
+- Built **ChargeSim**, an OCPP 1.6-J CSMS and simulator suite with up to 15 charge-point slots, queue management, remote operations, dynamic power sharing, MySQL/CSV transaction records, and Raspberry Pi support; validated basic physical-charger connectivity through WebSocket, StatusNotification, and Heartbeat.
+- Built **EMS Modbus**, a real-time pipeline for nine energy parameters from three smart meters, including register validation, multi-strategy decoding, MySQL logging, MQTT publishing, and a secured Streamlit dashboard.
 
 ### Social Media Admin Intern - SF Group Services Enterprise / JetDigital.Pro
 **May 2025 - Jul 2025**
@@ -88,15 +90,20 @@ Computer Engineering student at Universitas Brawijaya with a 3.65/4.00 GPA. I wo
 
 ## Selected Projects
 
-### Enerlytics - EV Charging Forecasting Dashboard
+### Enerlytics - Multi-Source Energy Analytics & Forecasting
 
-- Built a Flask dashboard for EV charging data with live metrics, anomaly alerts, data upload, database loading, daily energy tables, interactive charts, and forecasting workflows.
-- Compared XGBoost, CatBoost, LSTM, ARIMA, SVR, ANN, GBDT, and DeepBoost to support model-backed capacity planning; stack: Python, Flask, Pandas, NumPy, MySQL, Chart.js, OCPP 1.6, and scikit-learn.
+- Built a Flask platform that brings together OCPP charger data, Modbus meters, MQTT telemetry, uploads, and API input in one authenticated monitoring and forecasting workflow.
+- Implemented LSTM, ARIMA, GBDT, XGBoost, SVR, ANN, and DeepBoost with ordered weekly evaluation, comprehensive error metrics, and safeguards against implausible future predictions.
 
-### ChargeSim - Smart Charging Simulator
+### ChargeSim - OCPP Smart Charging Simulator
 
-- Built an OCPP 1.6 simulator covering both charge point client and central system server behavior, including queue handling, remote start, smart charging limits, transaction logs, and live power charts.
-- Simulated up to **15 charging sessions** with real EV power curves; repository: github.com/gnieerfd/smart-charging-simulator.
+- Built an OCPP 1.6-J CSMS and simulator suite with up to **15 charge-point slots**, queue management, remote start/stop flows, live power views, smart power sharing, MySQL storage, CSV export, and Raspberry Pi support.
+- Validated basic connectivity with a BRIN physical charger through WebSocket, StatusNotification, and Heartbeat; full physical transaction and charging-profile validation is documented as follow-up work. Repository: github.com/gnieerfd/smart-charging-simulator.
+
+### EMS Modbus - Real-Time Energy Monitoring
+
+- Built a Modbus TCP acquisition pipeline for nine energy parameters across three smart meters, with raw-register validation, endianness and scaling handling, bounded buffering, MySQL time-series logging, and MQTT publishing.
+- Built a secured Streamlit dashboard with bcrypt password hashing, role-aware access, CAPTCHA, real-time tables, and trend charts.
 
 ### Jarvis S2S - Local Speech-to-Speech AI Assistant
 
@@ -117,7 +124,7 @@ Computer Engineering student at Universitas Brawijaya with a 3.65/4.00 GPA. I wo
 
 ### Backend & Data Engineering
 
-- Python, Flask, FastAPI, MySQL, SQL, Docker, REST API, data ingestion, CSV/XLSX processing, dashboard data flow.
+- Python, Flask, FastAPI, MySQL, SQLAlchemy, SQL, Docker, REST API, ETL, data ingestion, CSV/XLSX processing, dashboard data flow.
 
 ### Machine Learning & AI
 
@@ -129,7 +136,7 @@ Computer Engineering student at Universitas Brawijaya with a 3.65/4.00 GPA. I wo
 
 ### IoT, EV & Protocols
 
-- OCPP 1.6, WebSocket communication, asyncio, PySide6 desktop GUI, matplotlib live plotting, smart charging simulation, charging session modelling.
+- OCPP 1.6-J, WebSocket communication, Modbus TCP, MQTT, pymodbus, Paho MQTT, asyncio, PySide6, Streamlit, Raspberry Pi, smart charging simulation, real-time telemetry, bcrypt authentication.
 
 ### Mobile & Frontend
 

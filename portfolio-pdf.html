@@ -258,20 +258,28 @@
 
     .project {
       display: grid;
-      grid-template-columns: 238px minmax(0, 1fr);
-      gap: 24px;
-      padding: 22px 0;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 26px;
+      padding: 24px 0;
       margin-bottom: 0;
       border-top: 1px solid var(--line);
       break-inside: avoid;
     }
 
     .project img {
+      display: block;
       width: 100%;
-      height: 150px;
-      object-fit: cover;
+      height: 180px;
+      padding: 6px;
+      object-fit: contain;
+      object-position: center;
       border-radius: 10px;
       border: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .project img.contain {
+      object-fit: contain;
       background: var(--soft);
     }
 
@@ -326,7 +334,12 @@
     @media print {
       @page {
         size: A4;
-        margin: 10mm;
+        margin: 11mm;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
 
       body {
@@ -342,6 +355,46 @@
         padding: 0;
       }
 
+      .hero {
+        grid-template-columns: minmax(0, 1fr) 185px;
+        gap: 24px;
+        break-inside: avoid-page;
+      }
+
+      .hero-copy {
+        font-size: 14px;
+      }
+
+      .profile-card {
+        padding-left: 16px;
+      }
+
+      .profile-card img {
+        height: 225px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 25px;
+        margin-bottom: 14px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      .panel {
+        padding: 20px 0;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 24px;
+      }
+
       .panel,
       .card,
       .project,
@@ -350,22 +403,61 @@
       }
 
       section {
-        break-inside: avoid;
+        break-inside: auto;
+      }
+
+      .card,
+      .project,
+      .org-card,
+      .contact-item {
+        break-inside: avoid-page;
+        page-break-inside: avoid;
       }
 
       .project {
-        grid-template-columns: 210px minmax(0, 1fr);
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 18px;
+        padding: 17px 0;
       }
 
       .project img {
-        height: 145px;
+        height: 152px;
+        padding: 4px;
+        object-fit: contain;
+      }
+
+      .project .caption {
+        margin-top: 5px;
+        font-size: 10px;
+      }
+
+      .project-body p,
+      .card p,
+      .org-card p {
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .project-body p {
+        margin-bottom: 7px;
+      }
+
+      .tags {
+        gap: 4px;
+        margin-top: 8px;
+      }
+
+      .tag {
+        padding: 3px 6px;
+        font-size: 9.5px;
       }
     }
   </style>
 </head>
 <body>
   <div class="print-actions">
-    <button type="button" onclick="window.print()">Save Portfolio as PDF</button>
+    <a href="Gania_Rafidah_Huwaida_Portfolio_2026.pdf" download>Download Ready PDF</a>
+    <button type="button" onclick="window.print()">Print Updated Copy</button>
     <a href="index.html">Back to website</a>
     <a href="Gania_Rafidah_Huwaida_CV.md">Open CV Markdown</a>
   </div>
@@ -375,9 +467,9 @@
       <div class="panel">
         <div class="eyebrow">Portfolio PDF</div>
         <h1>Gania Rafidah Huwaida</h1>
-        <p class="hero-copy">Computer Engineering student at Universitas Brawijaya with a 3.65/4.00 GPA. I build practical systems around EV charging data, OCPP simulation, local voice AI, mobile computer vision, and AI-backed cyber safety products.</p>
+        <p class="hero-copy">Computer Engineering student at Universitas Brawijaya with a 3.65/4.00 GPA. During a six-month BRIN research internship, I built connected systems for EV charging analytics, OCPP simulation, and real-time industrial energy monitoring.</p>
         <div class="stats">
-          <div class="stat"><strong>5+</strong><span>Projects Built</span></div>
+          <div class="stat"><strong>6+</strong><span>Projects Built</span></div>
           <div class="stat"><strong>2+</strong><span>National Internships</span></div>
           <div class="stat"><strong>3.65</strong><span>GPA / 4.00</span></div>
           <div class="stat"><strong>70+</strong><span>Staff Led</span></div>
@@ -392,7 +484,7 @@
     <section class="panel">
       <div class="eyebrow">About</div>
       <h2>Building tools people can <em>use.</em></h2>
-      <p>I am drawn to systems where software touches the physical world: a charger sending live power data, a microphone turning speech into action, or a mobile camera running a model offline. At BRIN, I built EV charging tools for monitoring, forecasting, OCPP simulation, and smart charging experiments. At Telkom Indonesia BigBox, I explored local speech-to-speech AI with DSP, ASR, FastAPI, and CPU-friendly model choices.</p>
+      <p>I am drawn to systems where software touches the physical world: a charger exchanging protocol messages, a smart meter streaming imperfect field data, a microphone turning speech into action, or a mobile camera running a model offline. From February to July 2026, I joined BRIN's E-Mobility research group and delivered Enerlytics, ChargeSim, and an EMS Modbus pipeline. Earlier at Telkom Indonesia BigBox, I explored local speech-to-speech AI with DSP, ASR, FastAPI, and CPU-friendly model choices.</p>
     </section>
 
     <section>
@@ -409,10 +501,11 @@
           </article>
           <article class="card">
             <div class="meta">Feb 2026 - Jul 2026</div>
-            <h3>Research Software Intern - BRIN</h3>
+            <h3>Machine Learning Research Intern - BRIN</h3>
             <ul>
-              <li>Built Enerlytics, a Flask dashboard for EV charging data with upload, MySQL loading, charts, alerts, and forecasting models.</li>
-              <li>Built ChargeSim, an OCPP 1.6 simulator for up to 15 charging sessions with smart charging limits and real EV power curves.</li>
+              <li>Delivered three connected prototypes during a six-month placement with the E-Mobility research group.</li>
+              <li>Built Enerlytics for multi-source energy analytics and seven-model forecasting, and ChargeSim for OCPP 1.6 testing, queue management, and smart power sharing.</li>
+              <li>Built an EMS Modbus pipeline for three smart meters with MySQL logging, MQTT distribution, and secured Streamlit monitoring.</li>
             </ul>
           </article>
           <article class="card">
@@ -432,7 +525,7 @@
       <div class="grid-3">
         <div class="card">
           <h3>Backend & Data</h3>
-          <p>Python, Flask, FastAPI, MySQL, SQL, Docker, REST API, CSV/XLSX processing, dashboard data flow.</p>
+          <p>Python, Flask, FastAPI, MySQL, SQLAlchemy, SQL, Docker, REST API, ETL, CSV/XLSX processing, dashboard data flow.</p>
         </div>
         <div class="card">
           <h3>Machine Learning & AI</h3>
@@ -440,7 +533,7 @@
         </div>
         <div class="card">
           <h3>Audio, IoT & Frontend</h3>
-          <p>Faster-Whisper, PyAudio, VAD, ASR, FFmpeg, OCPP 1.6, WebSocket, asyncio, PySide6, Chart.js, Android, Kotlin, CameraX.</p>
+          <p>OCPP 1.6-J, WebSocket, Modbus TCP, MQTT, asyncio, PySide6, Streamlit, Raspberry Pi, Faster-Whisper, FFmpeg, Chart.js, Android, Kotlin.</p>
         </div>
       </div>
     </section>
@@ -456,10 +549,10 @@
             <div class="caption">EV charging forecasting dashboard</div>
           </div>
           <div class="project-body">
-            <h3>Enerlytics - EV Charging Forecasting Dashboard</h3>
-            <p>A Flask dashboard for EV charging data with live metrics, CSV/XLSX upload, MySQL-backed loading, KPI cards, daily energy tables, Chart.js visualizations, and anomaly alerts.</p>
-            <p>Compared XGBoost, CatBoost, LSTM, ARIMA, SVR, ANN, GBDT, and DeepBoost to support model-backed capacity planning.</p>
-            <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">MySQL</span><span class="tag">Chart.js</span><span class="tag">XGBoost</span><span class="tag">LSTM</span></div>
+            <h3>Enerlytics - Multi-Source Energy Analytics & Forecasting</h3>
+            <p>A Flask platform that unifies OCPP charger data, Modbus meters, MQTT telemetry, file uploads, and API input through 20+ REST endpoints and a 12+ table SQLAlchemy schema.</p>
+            <p>Implemented seven forecasting approaches with ordered weekly evaluation, comprehensive metrics, automatic interpretation, and safeguards against implausible future predictions.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">OCPP 1.6</span><span class="tag">Modbus TCP</span><span class="tag">MySQL</span><span class="tag">Forecasting</span></div>
           </div>
         </article>
 
@@ -469,10 +562,23 @@
             <div class="caption">OCPP charge point simulator</div>
           </div>
           <div class="project-body">
-            <h3>ChargeSim - Smart Charging Simulator</h3>
-            <p>An OCPP 1.6 simulator covering charge point clients and a central system server, with queue tokens, remote start, live power charts, transaction logs, and smart charging limits.</p>
-            <p>Simulates up to 15 sessions and uses real EV power curves from BMW iX, IONIQ 6, NETA 01, and Toyota bZ4X. Repository: github.com/gnieerfd/smart-charging-simulator.</p>
-            <div class="tags"><span class="tag">OCPP 1.6</span><span class="tag">PySide6</span><span class="tag">asyncio</span><span class="tag">matplotlib</span><span class="tag">DQN</span></div>
+            <h3>ChargeSim - OCPP Smart Charging Simulator</h3>
+            <p>A Python and PySide6 CSMS testbed with up to 15 charge-point slots, queue management, remote operations, live power views, smart power sharing, MySQL transaction storage, CSV export, and Raspberry Pi support.</p>
+            <p>Validated basic connectivity with a BRIN physical charger through WebSocket, StatusNotification, and Heartbeat; full physical transactions and charging-profile application remain follow-up work. Repository: github.com/gnieerfd/smart-charging-simulator.</p>
+            <div class="tags"><span class="tag">OCPP 1.6-J</span><span class="tag">PySide6</span><span class="tag">WebSocket</span><span class="tag">MySQL</span><span class="tag">Raspberry Pi</span></div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <img class="contain" src="assets/images/projects/ems-modbus.png" alt="EMS Modbus dashboard publishing smart-meter readings to MQTT and a local database.">
+            <div class="caption">Operational Modbus, MQTT, and local database dashboard</div>
+          </div>
+          <div class="project-body">
+            <h3>EMS Modbus - Industrial Energy Monitoring</h3>
+            <p>A real-time pipeline for nine energy parameters across three smart meters, with raw-register validation, endianness and scaling handling, bounded buffering, MySQL time-series logging, and MQTT publishing.</p>
+            <p>The secured Streamlit dashboard adds bcrypt password hashing, role-aware access, arithmetic CAPTCHA, live tables, and trend charts.</p>
+            <div class="tags"><span class="tag">Modbus TCP</span><span class="tag">MQTT</span><span class="tag">Streamlit</span><span class="tag">SQLAlchemy</span><span class="tag">MySQL</span></div>
           </div>
         </article>
 
